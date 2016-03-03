@@ -8,8 +8,11 @@ namespace SeoUrlSanitizer.Tests
         [Fact]
         public void SanitizeText()
         {
-            string before = "How to sanitize a url for seo purposes";
-            string after = "how-to-sanitize-a-url-for-seo-purposes";
+            /*string before = "How to sanitize a url for-   seo purposes";
+            string after = "how-to-sanitize-a-url-for-seo-purposes";*/
+
+            string before = "i-   s purposes";
+            string after = "i-s-purposes";
 
             StringToUrlSanitizer.Sanitize(before).ShouldBe(after);
         }
