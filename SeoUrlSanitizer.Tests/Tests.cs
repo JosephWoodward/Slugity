@@ -6,13 +6,19 @@ namespace SeoUrlSanitizer.Tests
     public class Tests
     {
         [Fact]
+        public void StringToLowerTest()
+        {
+            string before = "How To Sanitize a url for SEO purposes";
+            string after = "how-to-sanitize-a-url-for-seo-purposes";
+
+            StringToUrlSanitizer.Sanitize(before).ShouldBe(after);
+        }
+
+        [Fact]
         public void SanitizeText()
         {
-            /*string before = "How to sanitize a url for-   seo purposes";
-            string after = "how-to-sanitize-a-url-for-seo-purposes";*/
-
-            string before = "i-   s purposes";
-            string after = "i-s-purposes";
+            string before = "How to sanitize a url for-   seo purposes";
+            string after = "how-to-sanitize-a-url-for-seo-purposes";
 
             StringToUrlSanitizer.Sanitize(before).ShouldBe(after);
         }

@@ -14,29 +14,40 @@ namespace SeoUrlSanitizer
             if (string.IsNullOrEmpty(input.Trim()))
                 return input;
 
-            bool lastCharWasWhiteSpace = false;
+            bool lastCharIsSeperator = false;
+            bool isHtml = false;
             var result = new StringBuilder();
             char c;
             foreach (char currentChar in input)
             {
                 c = currentChar;
                 int index = input.IndexOf(c);
-                if (index < 0) continue;
 
-                if (char.IsWhiteSpace(c) || c == '-')
+                if (c == '<')
                 {
-                    /*if (!lastCharWasWhiteSpace)*/
-                        result.Append('-');
-
-                    lastCharWasWhiteSpace = true;
+                    isHtml = true;
+                    continue;
+                }
+                if (c == '>')
+                {
+                    isHtml = false;
                     continue;
                 }
 
+                if (isHtml) continue;
 
-                if (c != ' ')
-                    result.Append(ToLower(c));
+                if (char.IsWhiteSpace(c) || c == '-')
+                {
+                    if (!lastCharIsSeperator) result.Append('-');
+                    lastCharIsSeperator = true;
+                    continue;
+                }
 
-                /*input = input.Remove(ix, 1);*/
+                lastCharIsSeperator = false;
+
+                result.Append(ToLower(c));
+
+
             }
 
             return result.ToString();
