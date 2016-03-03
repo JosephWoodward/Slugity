@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DiacriticsCleanup.cs" />
-    <Compile Include="SeoUrlSanitizer.cs" />
+    <Compile Include="StringToUrlSanitizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StopWords.cs" />
   </ItemGroup>

@@ -1,6 +1,6 @@
 ﻿namespace SeoUrlSanitizer
 {
-    public class SeoUrlSanitizer
+    public class StringToUrlSanitizer
     {
         private const int UrlMaxLenth = 60;
 

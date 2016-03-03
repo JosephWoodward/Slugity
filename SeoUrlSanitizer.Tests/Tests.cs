@@ -8,29 +8,29 @@ namespace SeoUrlSanitizer.Tests
         [Fact]
         public void SanitizeText()
         {
-            string title = "How to sanitize a url for seo purposes";
-            string result = "how-to-sanitize-a-url-for-seo-purposes";
+            string before = "How to sanitize a url for seo purposes";
+            string after = "how-to-sanitize-a-url-for-seo-purposes";
 
-            SeoUrlSanitizer.Sanitize(title).ShouldBe(result);
+            StringToUrlSanitizer.Sanitize(before).ShouldBe(after);
         }
 
         [Fact]
         public void StripHtmlTags()
         {
-            string title = "<p>How to sanitize a <a href=\"http://www.google.co.uk\" target=\"_blank\">url</a> for <span style=\"font-weight: bold;\">seo</span> purposes</p>";
-            string result = "how-to-sanitize-a-url-for-seo-purposes";
+            string before = "<p>How to sanitize a <a href=\"http://www.google.co.uk\" target=\"_blank\">url</a> for <span style=\"font-weight: bold;\">seo</span> purposes</p>";
+            string after = "how-to-sanitize-a-url-for-seo-purposes";
 
-            SeoUrlSanitizer.Sanitize(title).ShouldBe(result);
+            StringToUrlSanitizer.Sanitize(before).ShouldBe(after);
         }
 
 
         [Fact]
         public void RemoveStopWords()
         {
-            string title = "How to sanitize a url for seo purposes and remove stop words";
-            string result = "how-sanitize-url-seo-purposes-remove-stop-words";
+            string before = "How to sanitize a url for seo purposes and remove stop words";
+            string after = "how-sanitize-url-seo-purposes-remove-stop-words";
 
-            SeoUrlSanitizer.Sanitize(title, true).ShouldBe(result);
+            StringToUrlSanitizer.Sanitize(before, true).ShouldBe(after);
         }
     }
 }
