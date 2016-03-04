@@ -1,34 +1,56 @@
-﻿using System;
+﻿using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using static System.Char;
 
 namespace SeoUrlSanitizer
 {
     public class StringToUrlSanitizer
     {
-        private const int UrlMaxLenth = 60;
-
-        // https://moz.com/blog/15-seo-best-practices-for-structuring-urls
+        /// <summary>Sanitize input string to URL</summary>
+        /// <param name="input">Input string</param>
+        /// <returns>Sanitized output string</returns>
         public static string Sanitize(string input)
         {
             if (string.IsNullOrEmpty(input.Trim()))
                 return input;
 
+            var result = SanitizeString(input).ToString();
+
+            result = Regex.Replace(result, "[^\\s-0-9a-zA-Z]+", "");
+            return result;
+        }
+
+        /// <summary>Sanitize input string to URL, removing stop words</summary>
+        /// <param name="input">Input string</param>
+        /// <returns>Sanitized output string with stop words removed</returns>
+        public static string SanitizeAndRemoveStopWords(string input)
+        {
+            if (string.IsNullOrEmpty(input.Trim()))
+                return input;
+
+            var result = SanitizeString(input).ToString();
+            string[] formatted = result.Split('-');
+
+            return string.Join("-", formatted.Except(StopWords.StopWordList));
+        }
+
+        // https://moz.com/blog/15-seo-best-practices-for-structuring-urls
+        private static StringBuilder SanitizeString(string input)
+        {
             bool lastCharIsSeperator = false;
             bool isHtml = false;
             var result = new StringBuilder();
-            char c;
+
+            input = DiacriticalFoldingService.FoldDiacriticals(input);
             foreach (char currentChar in input)
             {
-                c = currentChar;
-                int index = input.IndexOf(c);
-
-                if (c == '<')
+                if (currentChar == '<')
                 {
                     isHtml = true;
                     continue;
                 }
-                if (c == '>')
+                if (currentChar == '>')
                 {
                     isHtml = false;
                     continue;
@@ -36,7 +58,7 @@ namespace SeoUrlSanitizer
 
                 if (isHtml) continue;
 
-                if (char.IsWhiteSpace(c) || c == '-')
+                if (char.IsWhiteSpace(currentChar) || currentChar == '-')
                 {
                     if (!lastCharIsSeperator) result.Append('-');
                     lastCharIsSeperator = true;
@@ -45,17 +67,10 @@ namespace SeoUrlSanitizer
 
                 lastCharIsSeperator = false;
 
-                result.Append(ToLower(c));
-
-
+                result.Append(ToLower(currentChar));
             }
 
-            return result.ToString();
-        }
-
-        public static string Sanitize(string input, bool removeStopWords)
-        {
-            return "";
+            return result;
         }
     }
 }
