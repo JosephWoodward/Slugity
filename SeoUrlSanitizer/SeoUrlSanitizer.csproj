@@ -40,7 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\Case.cs" />
+    <Compile Include="Configuration\SlugConfiguration.cs" />
+    <Compile Include="Configuration\TextCase.cs" />
     <Compile Include="Configuration\DefaultConfiguration.cs" />
     <Compile Include="DiacriticalFoldingService.cs" />
     <Compile Include="DiacriticsCleanup.cs" />

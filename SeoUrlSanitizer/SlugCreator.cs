@@ -8,7 +8,7 @@ namespace SeoUrlSanitizer
 
         public SlugCreator()
         {
-            _configuration = new DefaultConfiguration();
+            _configuration = new SlugConfiguration();
         }
 
         public SlugCreator(IConfiguration configuration)
@@ -19,8 +19,9 @@ namespace SeoUrlSanitizer
         public string Sanitize(string input)
         {
             var result = StringToUrlSanitizer.Sanitize(input);
+            if (_configuration.TextCase == TextCase.Ignore) return input;
 
-            return result;
+            return _configuration.TextCase == TextCase.LowerCase ? result.ToLower() : result.ToUpper();
         }
     }
 }

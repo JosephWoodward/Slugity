@@ -1,8 +1,9 @@
 ﻿namespace SeoUrlSanitizer.Configuration
 {
-    public enum Case
+    public enum TextCase
     {
         UpperCase,
-        LowerCase
+        LowerCase,
+        Ignore
     }
 }

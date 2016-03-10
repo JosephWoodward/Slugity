@@ -23,6 +23,7 @@ namespace SeoUrlSanitizer.Tests
             StringToUrlSanitizer.Sanitize(before).ShouldBe(after);
         }
 
+/*
         [Fact]
         public void RemoveSpecialCharacters()
         {
@@ -31,6 +32,7 @@ namespace SeoUrlSanitizer.Tests
 
             StringToUrlSanitizer.Sanitize(before).ShouldBe(after);
         }
+*/
 
 
         [Fact]

@@ -2,6 +2,8 @@
 {
     public interface IConfiguration
     {
-        Case ForceCase { get; set; }
+        TextCase TextCase { get; set; }
+
+        string Separator { get; set; }
     }
 }

@@ -1,7 +1,15 @@
 ﻿namespace SeoUrlSanitizer.Configuration
 {
-    public class DefaultConfiguration : IConfiguration
+    public abstract class DefaultConfiguration : IConfiguration
     {
-        public Case ForceCase => Case.LowerCase;
+        protected DefaultConfiguration()
+        {
+            TextCase = TextCase.LowerCase;
+            Separator = "-";
+        }
+
+        public TextCase TextCase { get; set; }
+
+        public string Separator { get; set; }
     }
 }
