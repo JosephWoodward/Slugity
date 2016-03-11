@@ -1,10 +1,21 @@
-﻿using SeoUrlSanitizer.Configuration;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using SeoUrlSanitizer.Configuration;
+using SeoUrlSanitizer.FormattingTypes;
 
 namespace SeoUrlSanitizer
 {
     public class SlugCreator
     {
         private readonly IConfiguration _configuration;
+
+        private readonly IList<ISlugFormatter> _slugFormatters = new List<ISlugFormatter>
+        {
+            new TextCaseFormatter(),
+            new SeparatorFormatter(),
+            new StopWordFormatter()
+        };
 
         public SlugCreator()
         {
@@ -18,10 +29,17 @@ namespace SeoUrlSanitizer
 
         public string Sanitize(string input)
         {
-            var result = StringToUrlSanitizer.Sanitize(input);
-            if (_configuration.TextCase == TextCase.Ignore) return input;
+            if (string.IsNullOrEmpty(input) || string.IsNullOrWhiteSpace(input))
+                throw new ArgumentNullException(nameof(input));
 
-            return _configuration.TextCase == TextCase.LowerCase ? result.ToLower() : result.ToUpper();
+            var finalString = new StringBuilder();
+            foreach (ISlugFormatter slugFormatter in this._slugFormatters)
+            {
+                string formatResult = slugFormatter.Format(input, finalString, this._configuration);
+                finalString.Append(formatResult);
+            }
+
+            return finalString.ToString();
         }
     }
 }
