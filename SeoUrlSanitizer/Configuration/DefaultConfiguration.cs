@@ -5,11 +5,11 @@
         protected DefaultConfiguration()
         {
             TextCase = TextCase.LowerCase;
-            Separator = "-";
+            StringSeparator = "-";
         }
 
         public TextCase TextCase { get; set; }
 
-        public string Separator { get; set; }
+        public string StringSeparator { get; set; }
     }
 }

@@ -4,6 +4,6 @@
     {
         TextCase TextCase { get; set; }
 
-        string Separator { get; set; }
+        string StringSeparator { get; set; }
     }
 }

@@ -11,7 +11,8 @@ namespace SeoUrlSanitizer.Tests
         {
             var configuration = new SlugConfiguration
             {
-                TextCase = TextCase.LowerCase
+                TextCase = TextCase.LowerCase,
+                StringSeparator = null
             };
 
             var sanitizer = new SlugCreator(configuration);
@@ -28,7 +29,8 @@ namespace SeoUrlSanitizer.Tests
         {
             var configuration = new SlugConfiguration
             {
-                TextCase = TextCase.UpperCase
+                TextCase = TextCase.UpperCase,
+                StringSeparator = null
             };
 
             var sanitizer = new SlugCreator(configuration);
@@ -45,13 +47,14 @@ namespace SeoUrlSanitizer.Tests
         {
             var configuration = new SlugConfiguration
             {
-                TextCase = TextCase.UpperCase
+                TextCase = TextCase.LowerCase,
+                StringSeparator = "-"
             };
 
             var sanitizer = new SlugCreator(configuration);
 
             string before = "this should be lowercase";
-            string after = "THIS SHOULD BE LOWERCASE";
+            string after = "this-should-be-lowercase";
 
             string result = sanitizer.Sanitize(before);
             result.ShouldBe(after);
