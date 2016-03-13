@@ -14,7 +14,7 @@ Example:
     var sanitizer = new SlugCreator(configuration);
     
     string before = "A simple slug generation library";
-    string after = "a-simple-slug-generation-library";
+    string after = "";
     
-    string result = sanitizer.Sanitize(before);
-    result.ShouldBe(after);
+    string output = sanitizer.Sanitize("A simple slug generation library");
+    // Output: a-simple-slug-generation-library
