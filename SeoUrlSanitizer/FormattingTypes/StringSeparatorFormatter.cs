@@ -12,8 +12,14 @@ namespace SeoUrlSanitizer.FormattingTypes
             bool lastCharIsSeperator = false;
 
             var result = new StringBuilder();
+
+            bool isWhiteSpace;
             foreach (char currentChar in transformedString)
             {
+                isWhiteSpace = char.IsWhiteSpace(currentChar);
+                if (isWhiteSpace && transformedString.IndexOf(currentChar) == transformedString.Length - 1)
+                    break;
+
                 if (char.IsWhiteSpace(currentChar) || currentChar == '-')
                 {
                     if (!lastCharIsSeperator) result.Append('-');

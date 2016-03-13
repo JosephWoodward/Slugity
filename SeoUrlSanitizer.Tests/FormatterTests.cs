@@ -59,5 +59,25 @@ namespace SeoUrlSanitizer.Tests
             string result = sanitizer.Sanitize(before);
             result.ShouldBe(after);
         }
+
+        [Fact]
+        private void ShouldBeMaxLength()
+        {
+            var configuration = new SlugConfiguration
+            {
+                TextCase = TextCase.LowerCase,
+                StringSeparator = "-",
+                MaxLength = 15
+            };
+
+            var sanitizer = new SlugCreator(configuration);
+
+            string before = "this should be lowercase";
+            string after = "this-should-be";
+
+            string result = sanitizer.Sanitize(before);
+            result.ShouldBe(after);
+        }
+
     }
 }

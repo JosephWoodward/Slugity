@@ -47,6 +47,7 @@
     <Compile Include="DiacriticsCleanup.cs" />
     <Compile Include="Configuration\IConfiguration.cs" />
     <Compile Include="FormattingTypes\ISlugFormatter.cs" />
+    <Compile Include="FormattingTypes\MaxLengthFormatter.cs" />
     <Compile Include="FormattingTypes\StringSeparatorFormatter.cs" />
     <Compile Include="FormattingTypes\StopWordFormatter.cs" />
     <Compile Include="FormattingTypes\TextCaseFormatter.cs" />
