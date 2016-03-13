@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using SeoUrlSanitizer.Configuration;
 using SeoUrlSanitizer.FormattingTypes;
 
@@ -32,14 +31,13 @@ namespace SeoUrlSanitizer
             if (string.IsNullOrEmpty(input) || string.IsNullOrWhiteSpace(input))
                 throw new ArgumentNullException(nameof(input));
 
-            var finalString = new StringBuilder();
-            foreach (ISlugFormatter slugFormatter in this._slugFormatters)
+            string transformedString = input;
+            foreach (ISlugFormatter slugFormatter in _slugFormatters)
             {
-                string formatResult = slugFormatter.Format(input, finalString, this._configuration);
-                finalString.Append(formatResult);
+                transformedString = slugFormatter.Format(transformedString, _configuration);
             }
 
-            return finalString.ToString();
+            return transformedString;
         }
     }
 }

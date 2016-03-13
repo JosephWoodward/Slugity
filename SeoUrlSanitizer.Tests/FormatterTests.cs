@@ -40,5 +40,21 @@ namespace SeoUrlSanitizer.Tests
             result.ShouldBe(after);
         }
 
+        [Fact]
+        private void ShouldBeSeparatedByHyphens()
+        {
+            var configuration = new SlugConfiguration
+            {
+                TextCase = TextCase.UpperCase
+            };
+
+            var sanitizer = new SlugCreator(configuration);
+
+            string before = "this should be lowercase";
+            string after = "THIS SHOULD BE LOWERCASE";
+
+            string result = sanitizer.Sanitize(before);
+            result.ShouldBe(after);
+        }
     }
 }

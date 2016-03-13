@@ -1,20 +1,19 @@
-﻿using System.Text;
-using SeoUrlSanitizer.Configuration;
+﻿using SeoUrlSanitizer.Configuration;
 
 namespace SeoUrlSanitizer.FormattingTypes
 {
     public class TextCaseFormatter : ISlugFormatter
     {
-        public string Format(string input, StringBuilder finalString, IConfiguration configuration)
+        public string Format(string transformedString, IConfiguration configuration)
         {
             switch (configuration.TextCase)
             {
                 case TextCase.LowerCase:
-                    return input.ToLower();
+                    return transformedString.ToLower();
                 case TextCase.UpperCase:
-                    return input.ToUpper();
+                    return transformedString.ToUpper();
                 default:
-                    return input;
+                    return transformedString;
             }
         }
     }
