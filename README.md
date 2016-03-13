@@ -1,2 +1,3 @@
-# StringToUrlSanitizer
-Simple class library to sanitize text and turn it into a search engine friendly URL
+# Slug Generator
+
+A simply configuration based class library to create URL slugs.
