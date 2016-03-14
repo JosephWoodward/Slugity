@@ -4,7 +4,7 @@
     {
         TextCase TextCase { get; set; }
 
-        string StringSeparator { get; set; }
+        char StringSeparator { get; set; }
 
         int? MaxLength { get; set; }
     }

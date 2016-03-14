@@ -11,8 +11,7 @@ namespace SeoUrlSanitizer.Tests
         {
             var configuration = new SlugConfiguration
             {
-                TextCase = TextCase.LowerCase,
-                StringSeparator = null
+                TextCase = TextCase.LowerCase
             };
 
             var sanitizer = new SlugCreator(configuration);
@@ -29,8 +28,7 @@ namespace SeoUrlSanitizer.Tests
         {
             var configuration = new SlugConfiguration
             {
-                TextCase = TextCase.UpperCase,
-                StringSeparator = null
+                TextCase = TextCase.UpperCase
             };
 
             var sanitizer = new SlugCreator(configuration);
@@ -48,7 +46,7 @@ namespace SeoUrlSanitizer.Tests
             var configuration = new SlugConfiguration
             {
                 TextCase = TextCase.LowerCase,
-                StringSeparator = "-"
+                StringSeparator = '-'
             };
 
             var sanitizer = new SlugCreator(configuration);
@@ -66,18 +64,37 @@ namespace SeoUrlSanitizer.Tests
             var configuration = new SlugConfiguration
             {
                 TextCase = TextCase.LowerCase,
-                StringSeparator = "-",
-                MaxLength = 15
+                StringSeparator = '-',
+                MaxLength = 23
             };
 
             var sanitizer = new SlugCreator(configuration);
 
-            string before = "this should be lowercase";
-            string after = "this-should-be";
+            string before = "This should be replaced";
+            string after = "this-should-be-replaced";
 
             string result = sanitizer.Sanitize(before);
             result.ShouldBe(after);
         }
+
+        [Fact]
+        private void ShouldRemoveStopWords()
+        {
+            var configuration = new SlugConfiguration
+            {
+                TextCase = TextCase.LowerCase,
+                StringSeparator = ' '
+            };
+
+            var sanitizer = new SlugCreator(configuration);
+
+            string before = "This then that should remain";
+            string after = "this should remain";
+
+            string result = sanitizer.Sanitize(before);
+            result.ShouldBe(after);
+        }
+
 
     }
 }

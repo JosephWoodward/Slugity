@@ -5,13 +5,13 @@
         protected DefaultConfiguration()
         {
             TextCase = TextCase.LowerCase;
-            StringSeparator = "-";
+            StringSeparator = '-';
             MaxLength = null;
         }
 
         public TextCase TextCase { get; set; }
 
-        public string StringSeparator { get; set; }
+        public char StringSeparator { get; set; }
 
         public int? MaxLength { get; set; }
     }

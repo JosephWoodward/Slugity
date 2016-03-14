@@ -7,7 +7,9 @@ namespace SeoUrlSanitizer.FormattingTypes
     {
         public string Format(string transformedString, IConfiguration configuration)
         {
+/*
             if (configuration.StringSeparator == null) return transformedString;
+*/
 
             bool lastCharIsSeperator = false;
 
@@ -20,9 +22,9 @@ namespace SeoUrlSanitizer.FormattingTypes
                 if (isWhiteSpace && transformedString.IndexOf(currentChar) == transformedString.Length - 1)
                     break;
 
-                if (char.IsWhiteSpace(currentChar) || currentChar == '-')
+                if (char.IsWhiteSpace(currentChar) || currentChar == configuration.StringSeparator)
                 {
-                    if (!lastCharIsSeperator) result.Append('-');
+                    if (!lastCharIsSeperator) result.Append(configuration.StringSeparator);
                     lastCharIsSeperator = true;
                     continue;
                 }
