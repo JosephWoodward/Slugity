@@ -4,18 +4,28 @@ namespace SeoUrlSanitizer
 {
     public class CharacterReplacement
     {
-        private readonly Dictionary<string, string> replacementCharacterStore;
-
-        private IDictionary<string, string> ReplacementCharacters => replacementCharacterStore;
+        private readonly Dictionary<string, string> _replacementCharacterStore;
 
         public CharacterReplacement()
         {
-            replacementCharacterStore = new Dictionary<string, string>();
+            _replacementCharacterStore = new Dictionary<string, string>();
         }
 
         public void Add(string before, string after)
         {
-            replacementCharacterStore.Add(before, after);
+            _replacementCharacterStore.Add(before, after);
+        }
+
+        public void AddOrReplace(string before, string after)
+        {
+            if (_replacementCharacterStore.ContainsKey(before))
+                _replacementCharacterStore.Remove(before);
+            _replacementCharacterStore.Add(before, after);
+        }
+
+        public void Remove(string before)
+        {
+            _replacementCharacterStore.Remove(before);
         }
     }
 }
