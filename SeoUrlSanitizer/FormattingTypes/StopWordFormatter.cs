@@ -19,7 +19,7 @@ namespace SeoUrlSanitizer.FormattingTypes
                 return transformedString;*/
 
             string[] inputArray = transformedString.Split();
-            return string.Join("-", inputArray.Except(StopWords.StopWordList));
+            return string.Join(configuration.StringSeparator.ToString(), inputArray.Except(StopWords.StopWordList));
         }
     }
 }

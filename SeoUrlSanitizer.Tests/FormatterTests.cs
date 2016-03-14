@@ -11,7 +11,8 @@ namespace SeoUrlSanitizer.Tests
         {
             var configuration = new SlugConfiguration
             {
-                TextCase = TextCase.LowerCase
+                TextCase = TextCase.LowerCase,
+                StringSeparator = ' '
             };
 
             var sanitizer = new SlugCreator(configuration);
@@ -28,7 +29,8 @@ namespace SeoUrlSanitizer.Tests
         {
             var configuration = new SlugConfiguration
             {
-                TextCase = TextCase.UpperCase
+                TextCase = TextCase.UpperCase,
+                StringSeparator = ' '
             };
 
             var sanitizer = new SlugCreator(configuration);
