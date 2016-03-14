@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CharacterReplacement.cs" />
     <Compile Include="Configuration\SlugConfiguration.cs" />
     <Compile Include="Configuration\TextCase.cs" />
     <Compile Include="Configuration\DefaultConfiguration.cs" />
@@ -48,6 +49,7 @@
     <Compile Include="Configuration\IConfiguration.cs" />
     <Compile Include="FormattingTypes\ISlugFormatter.cs" />
     <Compile Include="FormattingTypes\MaxLengthFormatter.cs" />
+    <Compile Include="FormattingTypes\ReplaceCharactersFormatter.cs" />
     <Compile Include="FormattingTypes\StringSeparatorFormatter.cs" />
     <Compile Include="FormattingTypes\StopWordFormatter.cs" />
     <Compile Include="FormattingTypes\TextCaseFormatter.cs" />

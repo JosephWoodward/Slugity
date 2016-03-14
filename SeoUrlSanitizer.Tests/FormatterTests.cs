@@ -97,6 +97,25 @@ namespace SeoUrlSanitizer.Tests
             result.ShouldBe(after);
         }
 
+        [Fact]
+        private void ShouldReplaceCharacters()
+        {
+            var configuration = new SlugConfiguration
+            {
+                TextCase = TextCase.LowerCase,
+                StringSeparator = ' '
+            };
+
+            configuration.ReplacementCharacters.Add("Hello", "Goodbye");
+
+            var sanitizer = new SlugCreator(configuration);
+
+            string before = "Hello World";
+            string after = "Goodbye World";
+
+            string result = sanitizer.Sanitize(before);
+            result.ShouldBe(after);
+        }
 
     }
 }

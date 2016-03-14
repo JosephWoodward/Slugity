@@ -7,5 +7,7 @@
         char StringSeparator { get; set; }
 
         int? MaxLength { get; set; }
+
+        CharacterReplacement ReplacementCharacters { get; set; }
     }
 }
