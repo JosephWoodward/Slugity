@@ -1,6 +1,11 @@
 # Slug Generator
 
-A simple configuration based class library to create URL slugs.
+Slug generator is a simple configuration based class library that's designed to create SEO friendly URL slugs.
+
+## Configuration options
+
+- Ability to force desired text case (`UpperCase`, `LowerCase` or `Ignore`)
+- Maximum length of slug
 
 Example:
 
