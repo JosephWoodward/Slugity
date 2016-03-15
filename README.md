@@ -36,16 +36,16 @@ The main goal of Slug Generator is  to be highly customisable, providing users w
         bool EnableStopWords { get; set; }
     }
 
-**TextCase:** The TextCase enumeration allows you to specify the case of the generated slug.
+**TextCase:** The `TextCase` enumeration property allows you to specify the case of the generated slug.
 Available Options: `UpperCase`, `LowerCase` and `Ignore`.
 
 Default value: `TextCase = TextCase.LowerCase`
 
-**StringSeparator:** The `StringSeparator` configuration specifies the character used to separate string.
+**StringSeparator:** The `StringSeparator` property specifies the character used to separate strings in the slug generated.
 
-Defaunt value: `StringSeparator = '-';`
+Default value: `StringSeparator = '-';`
 
-**MaxLength:** The `MaxLength` value allows you to specify the maximum length of your generated slug. This length is calculated *after* stop-words, character replacements and invalid characters have been stripped from the slug.
+**MaxLength:** The `MaxLength` property allows you to specify the maximum length of your generated slug. This length is calculated *after* stop-words, character replacements and invalid characters have been stripped from the slug.
 
 
 **CharacterReplacement**
