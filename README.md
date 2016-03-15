@@ -25,7 +25,6 @@ The main goal of Slug Generator is  to be highly customisable, providing users w
 
     public interface IConfiguration
     {
-        // Options include LowerCase, UpperCase and Ignore
         TextCase TextCase { get; set; } 
     
         char StringSeparator { get; set; }
@@ -39,7 +38,8 @@ The main goal of Slug Generator is  to be highly customisable, providing users w
 
 **TextCase**
 
-The TextCase enum allows you to specify the case of the generated slug. Choices inclue `UpperCase`, `LowerCase` and `Ignore`.
+The TextCase enumeration allows you to specify the case of the generated slug.
+Choices include `UpperCase`, `LowerCase` and `Ignore`.
 
 Default configuration: `LowerCase`
 
