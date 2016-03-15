@@ -50,4 +50,10 @@ Default value: `StringSeparator = '-';`
 
 **CharacterReplacement**
 
-**EnableStopWords**
+**EnableStopWords:** Setting `EnableStopWords` to `true` will configure Slug Generator to remove a pre-defined set of stop-words from your generated slug. These stop-words are:
+
+    string[] StopWordList =
+    {
+        "the", "a", "an", "am", "is", "can", "and", "or", "but", "while", "if", "then", "thus", "of", "that", "on",
+        "for", "he", "we", "which", "her"
+    };
