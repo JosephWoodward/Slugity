@@ -47,6 +47,9 @@ Default value: `StringSeparator = '-';`
 
 **MaxLength:** The `MaxLength` property allows you to specify the maximum length of your generated slug. This length is calculated *after* stop-words, character replacements and invalid characters have been stripped from the slug.
 
+Setting the `MaxLength` property to null will disable trimming of the generated slug regardless of the slug's length.
+
+Default value: `MaxLength = 100;`
 
 **CharacterReplacement**
 
