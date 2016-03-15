@@ -1,14 +1,16 @@
-﻿namespace SeoUrlSanitizer.Configuration
+﻿using SeoUrlSanitizer.Configuration;
+
+namespace SeoUrlSanitizer.Tests
 {
-    public abstract class DefaultConfiguration : IConfiguration
+    public class CustomConfiguration : IConfiguration
     {
-        protected DefaultConfiguration()
+        public CustomConfiguration()
         {
             TextCase = TextCase.LowerCase;
-            StringSeparator = '-';
-            MaxLength = null;
-            ReplacementCharacters = new CharacterReplacement();
             EnableStopWords = false;
+            MaxLength = 30;
+            StringSeparator = ' ';
+            ReplacementCharacters = new CharacterReplacement();
         }
 
         public TextCase TextCase { get; set; }
