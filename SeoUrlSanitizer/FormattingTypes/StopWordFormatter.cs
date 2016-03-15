@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.Linq;
+﻿using System.Linq;
 using SeoUrlSanitizer.Configuration;
 
 namespace SeoUrlSanitizer.FormattingTypes
@@ -14,9 +13,7 @@ namespace SeoUrlSanitizer.FormattingTypes
 
         public string Format(string transformedString, IConfiguration configuration)
         {
-            /*char result;*/
-            /*if (!char.TryParse(configuration.StringSeparator, out result))
-                return transformedString;*/
+            if (!configuration.EnableStopWords) return transformedString;
 
             string[] inputArray = transformedString.Split();
             return string.Join(configuration.StringSeparator.ToString(), inputArray.Except(StopWords.StopWordList));

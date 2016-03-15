@@ -11,6 +11,7 @@ namespace SeoUrlSanitizer
 
         private readonly IList<ISlugFormatter> _slugFormatters = new List<ISlugFormatter>
         {
+            new CleanStringFormatter(),
             new ReplaceCharactersFormatter(),
             new TextCaseFormatter(),
             new MaxLengthFormatter(),

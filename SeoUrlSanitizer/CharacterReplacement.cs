@@ -6,6 +6,8 @@ namespace SeoUrlSanitizer
     {
         private readonly Dictionary<string, string> _replacementCharacterStore;
 
+        public IReadOnlyDictionary<string, string> ReplacementCharacters => _replacementCharacterStore;
+
         public CharacterReplacement()
         {
             _replacementCharacterStore = new Dictionary<string, string>();

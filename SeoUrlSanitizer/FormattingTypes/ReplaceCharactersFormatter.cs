@@ -1,4 +1,5 @@
-﻿using SeoUrlSanitizer.Configuration;
+﻿using System.Collections.Generic;
+using SeoUrlSanitizer.Configuration;
 
 namespace SeoUrlSanitizer.FormattingTypes
 {
@@ -6,10 +7,12 @@ namespace SeoUrlSanitizer.FormattingTypes
     {
         public string Format(string transformedString, IConfiguration configuration)
         {
-            foreach (var VARIABLE in configuration.ReplacementCharacters.)
+            foreach (KeyValuePair<string, string> characters in configuration.ReplacementCharacters.ReplacementCharacters)
             {
-                
+                transformedString = transformedString.Replace(characters.Key, characters.Value);
             }
+
+            return transformedString;
         }
     }
 }

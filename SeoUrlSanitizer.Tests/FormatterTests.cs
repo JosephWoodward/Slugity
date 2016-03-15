@@ -7,6 +7,18 @@ namespace SeoUrlSanitizer.Tests
     public class FormatterTests
     {
         [Fact]
+        private void ShouldBeDefaultFormatting()
+        {
+            var sanitizer = new SlugCreator();
+
+            string before = "THIS SHOULD BE LOWERCASE   and stripped";
+            string after = "this-should-be-lowercase-and-stripped";
+
+            string result = sanitizer.Sanitize(before);
+            result.ShouldBe(after);
+        }
+
+        [Fact]
         private void ShouldBeLowerCase()
         {
             var configuration = new SlugConfiguration
@@ -19,7 +31,7 @@ namespace SeoUrlSanitizer.Tests
 
             string before = "THIS SHOULD BE LOWERCASE";
             string after = "this should be lowercase";
-            
+
             string result = sanitizer.Sanitize(before);
             result.ShouldBe(after);
         }
@@ -85,7 +97,8 @@ namespace SeoUrlSanitizer.Tests
             var configuration = new SlugConfiguration
             {
                 TextCase = TextCase.LowerCase,
-                StringSeparator = ' '
+                StringSeparator = ' ',
+                EnableStopWords = true
             };
 
             var sanitizer = new SlugCreator(configuration);
@@ -102,7 +115,7 @@ namespace SeoUrlSanitizer.Tests
         {
             var configuration = new SlugConfiguration
             {
-                TextCase = TextCase.LowerCase,
+                TextCase = TextCase.Ignore,
                 StringSeparator = ' '
             };
 
@@ -116,6 +129,5 @@ namespace SeoUrlSanitizer.Tests
             string result = sanitizer.Sanitize(before);
             result.ShouldBe(after);
         }
-
     }
 }

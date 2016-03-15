@@ -47,6 +47,7 @@
     <Compile Include="DiacriticalFoldingService.cs" />
     <Compile Include="DiacriticsCleanup.cs" />
     <Compile Include="Configuration\IConfiguration.cs" />
+    <Compile Include="FormattingTypes\CleanStringFormatter.cs" />
     <Compile Include="FormattingTypes\ISlugFormatter.cs" />
     <Compile Include="FormattingTypes\MaxLengthFormatter.cs" />
     <Compile Include="FormattingTypes\ReplaceCharactersFormatter.cs" />

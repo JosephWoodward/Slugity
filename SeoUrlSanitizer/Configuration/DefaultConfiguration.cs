@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace SeoUrlSanitizer.Configuration
+﻿namespace SeoUrlSanitizer.Configuration
 {
     public abstract class DefaultConfiguration : IConfiguration
     {
@@ -10,6 +8,7 @@ namespace SeoUrlSanitizer.Configuration
             StringSeparator = '-';
             MaxLength = null;
             ReplacementCharacters = new CharacterReplacement();
+            EnableStopWords = false;
         }
 
         public TextCase TextCase { get; set; }
@@ -19,5 +18,7 @@ namespace SeoUrlSanitizer.Configuration
         public int? MaxLength { get; set; }
 
         public CharacterReplacement ReplacementCharacters { get; set; }
+
+        public bool EnableStopWords { get; set; }
     }
 }

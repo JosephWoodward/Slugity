@@ -9,5 +9,7 @@
         int? MaxLength { get; set; }
 
         CharacterReplacement ReplacementCharacters { get; set; }
+
+        bool EnableStopWords { get; set; }
     }
 }
