@@ -1,25 +1,52 @@
 # Slug Generator
 
-Slug generator is a simple configuration based class library that's designed to create SEO friendly URL slugs.
+Slug generator is a simple configuration based class library that's designed to create search engine friendly URL slugs.
 
-## Configuration options
 
-- Ability to force desired text case (`UpperCase`, `LowerCase` or `Ignore`)
-- Maximum length of slug
-
-Example:
+**Simple Example:**
 
     var configuration = new SlugConfiguration
     {
         TextCase = TextCase.LowerCase,
-        StringSeparator = "-",
+        StringSeparator = '-',
         MaxLength = 60
     };
     
     var sanitizer = new SlugCreator(configuration);
+        
+    string slug = sanitizer.Sanitize("A customisable slug generation library");
+    Console.Log(slug); 
     
-    string before = "A simple slug generation library";
-    string after = "";
+    //Output: a-customisable-slug-generation-library
+
+## Configuration options
+
+The main goal of Slug Generator is  to be highly customisable, providing users with the following configuration options:
+
+    public interface IConfiguration
+    {
+        // Options include LowerCase, UpperCase and Ignore
+        TextCase TextCase { get; set; } 
     
-    string output = sanitizer.Sanitize("A simple slug generation library");
-    // Output: a-simple-slug-generation-library
+        char StringSeparator { get; set; }
+    
+        int? MaxLength { get; set; }
+    
+        CharacterReplacement ReplacementCharacters { get; set; }
+    
+        bool EnableStopWords { get; set; }
+    }
+
+**TextCase**
+
+The TextCase enum allows you to specify the case of the generated slug. Choices inclue `UpperCase`, `LowerCase` and `Ignore`.
+
+Default configuration: `LowerCase`
+
+**StringSeparator**
+
+**MaxLength**
+
+**CharacterReplacement**
+
+**EnableStopWords**
