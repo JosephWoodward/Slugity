@@ -6,7 +6,7 @@
         {
             TextCase = TextCase.LowerCase;
             StringSeparator = '-';
-            MaxLength = null;
+            MaxLength = 100;
             ReplacementCharacters = new CharacterReplacement();
             EnableStopWords = false;
         }
