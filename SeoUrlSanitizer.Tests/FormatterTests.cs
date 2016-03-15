@@ -7,18 +7,6 @@ namespace SeoUrlSanitizer.Tests
     public class FormatterTests
     {
         [Fact]
-        private void ShouldBeDefaultFormatting()
-        {
-            var sanitizer = new SlugCreator();
-
-            string before = "THIS SHOULD BE LOWERCASE   and stripped";
-            string after = "this-should-be-lowercase-and-stripped";
-
-            string result = sanitizer.Sanitize(before);
-            result.ShouldBe(after);
-        }
-
-        [Fact]
         private void ShouldBeLowerCase()
         {
             var configuration = new SlugConfiguration
@@ -71,6 +59,25 @@ namespace SeoUrlSanitizer.Tests
             string result = sanitizer.Sanitize(before);
             result.ShouldBe(after);
         }
+
+        [Fact]
+        private void ShouldBeSeparatedByUnderscores()
+        {
+            var configuration = new SlugConfiguration
+            {
+                TextCase = TextCase.LowerCase,
+                StringSeparator = '_'
+            };
+
+            var sanitizer = new SlugCreator(configuration);
+
+            string before = "this should be lowercase";
+            string after = "this_should_be_lowercase";
+
+            string result = sanitizer.Sanitize(before);
+            result.ShouldBe(after);
+        }
+
 
         [Fact]
         private void ShouldBeMaxLength()

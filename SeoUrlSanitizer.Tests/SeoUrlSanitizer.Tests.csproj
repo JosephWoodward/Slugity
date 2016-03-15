@@ -60,6 +60,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomConfiguration.cs" />
+    <Compile Include="CustomConfigurationTests.cs" />
     <Compile Include="DefaultFormatterTests.cs" />
     <Compile Include="FormatterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
