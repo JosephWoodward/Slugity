@@ -7,17 +7,34 @@ namespace SeoUrlSanitizer.Tests.ConfigurationTests
     public class MaxLengthTests
     {
         [Fact]
-        private void ShouldNotTrimSlug()
+        private void ShouldNotTrimSlugIfMaxLengthIsNull()
         {
             var configuration = new SlugConfiguration
             {
-                MaxLength = 25
+                MaxLength = null
             };
 
             var sanitizer = new SlugCreator(configuration);
 
-            string before = "This should be replaced";
-            string after = "this-should-be-replaced";
+            string before = "This should not be trimmed";
+            string after = "this-should-not-be-trimmed";
+
+            string result = sanitizer.Sanitize(before);
+            result.ShouldBe(after);
+        }
+
+        [Fact]
+        private void ShouldNotTrimSlugIfMaxLengthGreater()
+        {
+            var configuration = new SlugConfiguration
+            {
+                MaxLength = 28
+            };
+
+            var sanitizer = new SlugCreator(configuration);
+
+            string before = "This should not be trimmed";
+            string after = "this-should-not-be-trimmed";
 
             string result = sanitizer.Sanitize(before);
             result.ShouldBe(after);
@@ -28,13 +45,13 @@ namespace SeoUrlSanitizer.Tests.ConfigurationTests
         {
             var configuration = new SlugConfiguration
             {
-                MaxLength = 5
+                MaxLength = 34
             };
 
             var sanitizer = new SlugCreator(configuration);
 
-            string before = "Test to see if the word hippo gets truncated";
-            string after = "test";
+            string before = "Test to see if the next separator gets truncated";
+            string after = "test-to-see-if-the-next-separator";
 
             string result = sanitizer.Sanitize(before);
             result.ShouldBe(after);
