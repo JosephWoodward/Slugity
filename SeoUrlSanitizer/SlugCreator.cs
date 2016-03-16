@@ -14,9 +14,9 @@ namespace SeoUrlSanitizer
             new CleanStringFormatter(),
             new ReplaceCharactersFormatter(),
             new TextCaseFormatter(),
-            new MaxLengthFormatter(),
             new StopWordFormatter(),
-            new StringSeparatorFormatter()
+            new StringSeparatorFormatter(),
+            new MaxLengthFormatter()
         };
 
         public SlugCreator()

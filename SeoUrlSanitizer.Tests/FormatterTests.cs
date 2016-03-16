@@ -78,26 +78,6 @@ namespace SeoUrlSanitizer.Tests
             result.ShouldBe(after);
         }
 
-
-        [Fact]
-        private void ShouldBeMaxLength()
-        {
-            var configuration = new SlugConfiguration
-            {
-                TextCase = TextCase.LowerCase,
-                StringSeparator = '-',
-                MaxLength = 23
-            };
-
-            var sanitizer = new SlugCreator(configuration);
-
-            string before = "This should be replaced";
-            string after = "this-should-be-replaced";
-
-            string result = sanitizer.Sanitize(before);
-            result.ShouldBe(after);
-        }
-
         [Fact]
         private void ShouldRemoveStopWords()
         {

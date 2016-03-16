@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigurationTests\MaxLengthTests.cs" />
     <Compile Include="CustomConfiguration.cs" />
     <Compile Include="CustomConfigurationTests.cs" />
     <Compile Include="DefaultFormatterTests.cs" />
