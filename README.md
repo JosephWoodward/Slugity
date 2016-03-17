@@ -74,6 +74,8 @@ Example:
 **EnableStopWords:**  
 Setting `EnableStopWords` to `true` will configure Slugity to remove a pre-defined set of stop-words from your generated slug. See [here](http://blogs.iit.edu/iit_web/2013/04/29/seo-the-evil-stop-words/) for more information on stop words. 
 
+Default value: `EnableStopWords = false;`
+
 The current stop-words are:
 
     string[] StopWordList =
