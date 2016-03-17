@@ -7,7 +7,7 @@ namespace Slugity
 {
     public class StringToUrlSanitizer
     {
-        /// <summary>Sanitize input string to URL</summary>
+        /// <summary>GenerateSlug input string to URL</summary>
         /// <param name="input">Input string</param>
         /// <returns>Sanitized output string</returns>
         public static string Sanitize(string input)
@@ -21,7 +21,7 @@ namespace Slugity
             return result;
         }
 
-        /// <summary>Sanitize input string to URL, removing stop words</summary>
+        /// <summary>GenerateSlug input string to URL, removing stop words</summary>
         /// <param name="input">Input string</param>
         /// <returns>Sanitized output string with stop words removed</returns>
         public static string SanitizeAndRemoveStopWords(string input)

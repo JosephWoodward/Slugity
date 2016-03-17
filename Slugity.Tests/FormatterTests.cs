@@ -15,12 +15,12 @@ namespace Slugity.Tests
                 StringSeparator = ' '
             };
 
-            var sanitizer = new Slugity(configuration);
+            var slugity = new Slugity(configuration);
 
             string before = "THIS SHOULD BE LOWERCASE";
             string after = "this should be lowercase";
 
-            string result = sanitizer.Sanitize(before);
+            string result = slugity.GenerateSlug(before);
             result.ShouldBe(after);
         }
 
@@ -33,12 +33,12 @@ namespace Slugity.Tests
                 StringSeparator = ' '
             };
 
-            var sanitizer = new Slugity(configuration);
+            var slugity = new Slugity(configuration);
 
             string before = "this should be lowercase";
             string after = "THIS SHOULD BE LOWERCASE";
 
-            string result = sanitizer.Sanitize(before);
+            string result = slugity.GenerateSlug(before);
             result.ShouldBe(after);
         }
 
@@ -51,12 +51,12 @@ namespace Slugity.Tests
                 StringSeparator = '-'
             };
 
-            var sanitizer = new Slugity(configuration);
+            var slugity = new Slugity(configuration);
 
             string before = "this should be lowercase";
             string after = "this-should-be-lowercase";
 
-            string result = sanitizer.Sanitize(before);
+            string result = slugity.GenerateSlug(before);
             result.ShouldBe(after);
         }
 
@@ -69,12 +69,12 @@ namespace Slugity.Tests
                 StringSeparator = '_'
             };
 
-            var sanitizer = new Slugity(configuration);
+            var slugity = new Slugity(configuration);
 
             string before = "this should be lowercase";
             string after = "this_should_be_lowercase";
 
-            string result = sanitizer.Sanitize(before);
+            string result = slugity.GenerateSlug(before);
             result.ShouldBe(after);
         }
 
@@ -88,12 +88,12 @@ namespace Slugity.Tests
                 EnableStopWords = true
             };
 
-            var sanitizer = new Slugity(configuration);
+            var slugity = new Slugity(configuration);
 
             string before = "This then that should remain";
             string after = "this should remain";
 
-            string result = sanitizer.Sanitize(before);
+            string result = slugity.GenerateSlug(before);
             result.ShouldBe(after);
         }
 
@@ -108,12 +108,12 @@ namespace Slugity.Tests
 
             configuration.ReplacementCharacters.Add("Hello", "Goodbye");
 
-            var sanitizer = new Slugity(configuration);
+            var slugity = new Slugity(configuration);
 
             string before = "Hello World";
             string after = "Goodbye World";
 
-            string result = sanitizer.Sanitize(before);
+            string result = slugity.GenerateSlug(before);
             result.ShouldBe(after);
         }
     }

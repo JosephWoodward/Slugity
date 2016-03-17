@@ -29,7 +29,7 @@ namespace Slugity
             this.slugityConfig = slugityConfig;
         }
 
-        public string Sanitize(string input)
+        public string GenerateSlug(string input)
         {
             if (string.IsNullOrEmpty(input) || string.IsNullOrWhiteSpace(input))
                 throw new ArgumentNullException(nameof(input));

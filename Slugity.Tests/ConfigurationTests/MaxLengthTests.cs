@@ -14,12 +14,12 @@ namespace Slugity.Tests.ConfigurationTests
                 MaxLength = null
             };
 
-            var sanitizer = new Slugity(configuration);
+            var slugity = new Slugity(configuration);
 
             string before = "This should not be trimmed";
             string after = "this-should-not-be-trimmed";
 
-            string result = sanitizer.Sanitize(before);
+            string result = slugity.GenerateSlug(before);
             result.ShouldBe(after);
         }
 
@@ -31,12 +31,12 @@ namespace Slugity.Tests.ConfigurationTests
                 MaxLength = 28
             };
 
-            var sanitizer = new Slugity(configuration);
+            var slugity = new Slugity(configuration);
 
             string before = "This should not be trimmed";
             string after = "this-should-not-be-trimmed";
 
-            string result = sanitizer.Sanitize(before);
+            string result = slugity.GenerateSlug(before);
             result.ShouldBe(after);
         }
 
@@ -48,12 +48,12 @@ namespace Slugity.Tests.ConfigurationTests
                 MaxLength = 34
             };
 
-            var sanitizer = new Slugity(configuration);
+            var slugity = new Slugity(configuration);
 
             string before = "Test to see if the next separator gets truncated";
             string after = "test-to-see-if-the-next-separator";
 
-            string result = sanitizer.Sanitize(before);
+            string result = slugity.GenerateSlug(before);
             result.ShouldBe(after);
         }
 
@@ -65,12 +65,12 @@ namespace Slugity.Tests.ConfigurationTests
                 MaxLength = 10
             };
 
-            var sanitizer = new Slugity(configuration);
+            var slugity = new Slugity(configuration);
 
             string before = "The word hippo should not be truncated";
             string after = "the-word-hippo";
 
-            string result = sanitizer.Sanitize(before);
+            string result = slugity.GenerateSlug(before);
             result.ShouldBe(after);
         }
     }

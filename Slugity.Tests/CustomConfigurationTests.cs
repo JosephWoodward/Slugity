@@ -10,12 +10,12 @@ namespace Slugity.Tests
         {
             var customConfigration = new CustomSlugityConfig();
 
-            var sanitizer = new Slugity(customConfigration);
+            var slugity = new Slugity(customConfigration);
 
             string before = "THIS SHOULD BE LOWERCASE";
             string after = "this should be lowercase";
 
-            string result = sanitizer.Sanitize(before);
+            string result = slugity.GenerateSlug(before);
             result.ShouldBe(after);
         }
     }
