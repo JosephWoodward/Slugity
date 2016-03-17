@@ -1,4 +1,4 @@
-# Slugity - The highly-configurable C# Slug Generator 
+# Slugity - The highly configurable C# Slug Generator 
 
 Slugity is a simple, configuration based class library that's designed to create search engine friendly URL slugs.
 
@@ -21,7 +21,7 @@ Slugity is a simple, configuration based class library that's designed to create
 
 ## Configuration options
 
-The main goal of Slugity is  to be highly customisable, providing users with the following configuration options:
+The main goal of Slugity is to be highly configuration, providing users with the following options:
 
     public interface ISlugityConfig
     {
