@@ -1,29 +1,29 @@
 # Slugity - The highly-configurable C# Slug Generator 
 
-Slugity is a simple configuration based class library that's designed to create search engine friendly URL slugs.
+Slugity is a simple, configuration based class library that's designed to create search engine friendly URL slugs.
 
 
 **Simple Example:**
 
-    var configuration = new SlugConfiguration
+    var configuration = new SlugityConfig
     {
         TextCase = TextCase.LowerCase,
         StringSeparator = '-',
         MaxLength = 60
     };
     
-    var sanitizer = new SlugCreator(configuration);
+    var slugity = new Slugity(configuration);
         
-    string slug = sanitizer.Sanitize("A customisable slug generation library");
+    string slug = slugity.Sanitize("A <span style="font-weight: bold">customisable</a> slug generation library");
     Console.Log(slug); 
     
     //Output: a-customisable-slug-generation-library
 
 ## Configuration options
 
-The main goal of Slug Generator is  to be highly customisable, providing users with the following configuration options:
+The main goal of Slugity is  to be highly customisable, providing users with the following configuration options:
 
-    public interface IConfiguration
+    public interface ISlugityConfig
     {
         TextCase TextCase { get; set; } 
     
@@ -53,7 +53,7 @@ Default value: `MaxLength = 100;`
 
 **CharacterReplacement**
 
-**EnableStopWords:** Setting `EnableStopWords` to `true` will configure Slug Generator to remove a pre-defined set of stop-words from your generated slug. These stop-words are:
+**EnableStopWords:** Setting `EnableStopWords` to `true` will configure Slugity to remove a pre-defined set of stop-words from your generated slug. These stop-words are:
 
     string[] StopWordList =
     {
