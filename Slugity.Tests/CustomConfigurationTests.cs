@@ -1,16 +1,16 @@
 ﻿using Shouldly;
 using Xunit;
 
-namespace SeoUrlSanitizer.Tests
+namespace Slugity.Tests
 {
     public class CustomConfigurationTests
     {
         [Fact]
         private void ShouldBeLowerCase()
         {
-            var customConfigration = new CustomConfiguration();
+            var customConfigration = new CustomSlugityConfig();
 
-            var sanitizer = new SlugCreator(customConfigration);
+            var sanitizer = new Slugity(customConfigration);
 
             string before = "THIS SHOULD BE LOWERCASE";
             string after = "this should be lowercase";

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeoUrlSanitizer", "SeoUrlSanitizer\SeoUrlSanitizer.csproj", "{FFEB8DB2-66CB-4DDB-BCC3-E07BFBBA5A94}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slugity", "Slugity\Slugity.csproj", "{FFEB8DB2-66CB-4DDB-BCC3-E07BFBBA5A94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeoUrlSanitizer.Tests", "SeoUrlSanitizer.Tests\SeoUrlSanitizer.Tests.csproj", "{0B22B924-2BE4-469B-8435-8E2045E0ECD5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slugity.Tests", "Slugity.Tests\Slugity.Tests.csproj", "{0B22B924-2BE4-469B-8435-8E2045E0ECD5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

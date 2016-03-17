@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using SeoUrlSanitizer.Configuration;
+using Slugity.Configuration;
 
-namespace SeoUrlSanitizer.FormattingTypes
+namespace Slugity.FormattingTypes
 {
     public class StopWordFormatter : ISlugFormatter
     {
@@ -11,12 +11,12 @@ namespace SeoUrlSanitizer.FormattingTypes
             "for", "he", "we", "which", "her"
         };
 
-        public string Format(string transformedString, IConfiguration configuration)
+        public string Format(string transformedString, ISlugityConfig config)
         {
-            if (!configuration.EnableStopWords) return transformedString;
+            if (!config.EnableStopWords) return transformedString;
 
             string[] inputArray = transformedString.Split();
-            return string.Join(configuration.StringSeparator.ToString(), inputArray.Except(StopWords.StopWordList));
+            return string.Join(config.StringSeparator.ToString(), inputArray.Except(StopWords.StopWordList));
         }
     }
 }

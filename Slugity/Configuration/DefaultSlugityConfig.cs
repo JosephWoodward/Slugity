@@ -1,16 +1,14 @@
-﻿using SeoUrlSanitizer.Configuration;
-
-namespace SeoUrlSanitizer.Tests
+﻿namespace Slugity.Configuration
 {
-    public class CustomConfiguration : IConfiguration
+    public abstract class DefaultSlugityConfig : ISlugityConfig
     {
-        public CustomConfiguration()
+        protected DefaultSlugityConfig()
         {
             TextCase = TextCase.LowerCase;
-            EnableStopWords = false;
-            MaxLength = 30;
-            StringSeparator = ' ';
+            StringSeparator = '-';
+            MaxLength = 100;
             ReplacementCharacters = new CharacterReplacement();
+            EnableStopWords = false;
         }
 
         public TextCase TextCase { get; set; }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SeoUrlSanitizer
+namespace Slugity
 {
     public class CharacterReplacement
     {

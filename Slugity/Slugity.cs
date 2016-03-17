@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using SeoUrlSanitizer.Configuration;
-using SeoUrlSanitizer.FormattingTypes;
+using Slugity.Configuration;
+using Slugity.FormattingTypes;
 
-namespace SeoUrlSanitizer
+namespace Slugity
 {
-    public class SlugCreator
+    public class Slugity
     {
-        private readonly IConfiguration _configuration;
+        private readonly ISlugityConfig slugityConfig;
 
         private readonly IList<ISlugFormatter> _slugFormatters = new List<ISlugFormatter>
         {
@@ -19,14 +19,14 @@ namespace SeoUrlSanitizer
             new MaxLengthFormatter()
         };
 
-        public SlugCreator()
+        public Slugity()
         {
-            _configuration = new SlugConfiguration();
+            slugityConfig = new SlugityConfig();
         }
 
-        public SlugCreator(IConfiguration configuration)
+        public Slugity(ISlugityConfig slugityConfig)
         {
-            _configuration = configuration;
+            this.slugityConfig = slugityConfig;
         }
 
         public string Sanitize(string input)
@@ -37,7 +37,7 @@ namespace SeoUrlSanitizer
             string transformedString = input;
             foreach (ISlugFormatter slugFormatter in _slugFormatters)
             {
-                transformedString = slugFormatter.Format(transformedString, _configuration);
+                transformedString = slugFormatter.Format(transformedString, slugityConfig);
             }
 
             return transformedString;

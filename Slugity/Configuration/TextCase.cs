@@ -1,4 +1,4 @@
-﻿namespace SeoUrlSanitizer.Configuration
+﻿namespace Slugity.Configuration
 {
     public enum TextCase
     {

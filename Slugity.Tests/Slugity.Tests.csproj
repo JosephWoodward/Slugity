@@ -7,8 +7,8 @@
     <ProjectGuid>{0B22B924-2BE4-469B-8435-8E2045E0ECD5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SeoUrlSanitizer.Tests</RootNamespace>
-    <AssemblyName>SeoUrlSanitizer.Tests</AssemblyName>
+    <RootNamespace>Slugity.Tests</RootNamespace>
+    <AssemblyName>Slugity.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Shouldly, Version=2.5.0.0, Culture=neutral, PublicKeyToken=6042cbcb05cbc941, processorArchitecture=MSIL">
-      <HintPath>..\packages\Shouldly.2.5.0\lib\net40\Shouldly.dll</HintPath>
+    <Reference Include="Shouldly, Version=2.6.0.0, Culture=neutral, PublicKeyToken=6042cbcb05cbc941, processorArchitecture=MSIL">
+      <HintPath>..\packages\Shouldly.2.6.0\lib\net40\Shouldly.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -61,7 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationTests\MaxLengthTests.cs" />
-    <Compile Include="CustomConfiguration.cs" />
+    <Compile Include="CustomSlugityConfig.cs" />
     <Compile Include="CustomConfigurationTests.cs" />
     <Compile Include="DefaultFormatterTests.cs" />
     <Compile Include="FormatterTests.cs" />
@@ -71,9 +71,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SeoUrlSanitizer\SeoUrlSanitizer.csproj">
+    <ProjectReference Include="..\Slugity\Slugity.csproj">
       <Project>{ffeb8db2-66cb-4ddb-bcc3-e07bfbba5a94}</Project>
-      <Name>SeoUrlSanitizer</Name>
+      <Name>Slugity</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

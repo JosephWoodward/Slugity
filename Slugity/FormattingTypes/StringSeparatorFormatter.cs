@@ -1,14 +1,14 @@
 ﻿using System.Text;
-using SeoUrlSanitizer.Configuration;
+using Slugity.Configuration;
 
-namespace SeoUrlSanitizer.FormattingTypes
+namespace Slugity.FormattingTypes
 {
     public class StringSeparatorFormatter : ISlugFormatter
     {
-        public string Format(string transformedString, IConfiguration configuration)
+        public string Format(string transformedString, ISlugityConfig config)
         {
 /*
-            if (configuration.StringSeparator == null) return transformedString;
+            if (config.StringSeparator == null) return transformedString;
 */
 
             bool lastCharIsSeperator = false;
@@ -22,9 +22,9 @@ namespace SeoUrlSanitizer.FormattingTypes
                 if (isWhiteSpace && transformedString.IndexOf(currentChar) == transformedString.Length - 1)
                     break;
 
-                if (char.IsWhiteSpace(currentChar) || currentChar == configuration.StringSeparator)
+                if (char.IsWhiteSpace(currentChar) || currentChar == config.StringSeparator)
                 {
-                    if (!lastCharIsSeperator) result.Append(configuration.StringSeparator);
+                    if (!lastCharIsSeperator) result.Append(config.StringSeparator);
                     lastCharIsSeperator = true;
                     continue;
                 }

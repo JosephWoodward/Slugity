@@ -1,4 +1,4 @@
-﻿namespace SeoUrlSanitizer
+﻿namespace Slugity
 {
     public static class StopWords
     {

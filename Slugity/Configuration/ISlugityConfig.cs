@@ -1,6 +1,6 @@
-﻿namespace SeoUrlSanitizer.Configuration
+﻿namespace Slugity.Configuration
 {
-    public interface IConfiguration
+    public interface ISlugityConfig
     {
         TextCase TextCase { get; set; }
 

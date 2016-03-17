@@ -1,12 +1,12 @@
-﻿using SeoUrlSanitizer.Configuration;
+﻿using Slugity.Configuration;
 
-namespace SeoUrlSanitizer.FormattingTypes
+namespace Slugity.FormattingTypes
 {
     public class TextCaseFormatter : ISlugFormatter
     {
-        public string Format(string transformedString, IConfiguration configuration)
+        public string Format(string transformedString, ISlugityConfig config)
         {
-            switch (configuration.TextCase)
+            switch (config.TextCase)
             {
                 case TextCase.LowerCase:
                     return transformedString.ToLower();

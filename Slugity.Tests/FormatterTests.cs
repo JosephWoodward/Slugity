@@ -1,21 +1,21 @@
-﻿using SeoUrlSanitizer.Configuration;
-using Shouldly;
+﻿using Shouldly;
+using Slugity.Configuration;
 using Xunit;
 
-namespace SeoUrlSanitizer.Tests
+namespace Slugity.Tests
 {
     public class FormatterTests
     {
         [Fact]
         private void ShouldBeLowerCase()
         {
-            var configuration = new SlugConfiguration
+            var configuration = new SlugityConfig
             {
                 TextCase = TextCase.LowerCase,
                 StringSeparator = ' '
             };
 
-            var sanitizer = new SlugCreator(configuration);
+            var sanitizer = new Slugity(configuration);
 
             string before = "THIS SHOULD BE LOWERCASE";
             string after = "this should be lowercase";
@@ -27,13 +27,13 @@ namespace SeoUrlSanitizer.Tests
         [Fact]
         private void ShouldBeUpperCase()
         {
-            var configuration = new SlugConfiguration
+            var configuration = new SlugityConfig
             {
                 TextCase = TextCase.UpperCase,
                 StringSeparator = ' '
             };
 
-            var sanitizer = new SlugCreator(configuration);
+            var sanitizer = new Slugity(configuration);
 
             string before = "this should be lowercase";
             string after = "THIS SHOULD BE LOWERCASE";
@@ -45,13 +45,13 @@ namespace SeoUrlSanitizer.Tests
         [Fact]
         private void ShouldBeSeparatedByHyphens()
         {
-            var configuration = new SlugConfiguration
+            var configuration = new SlugityConfig
             {
                 TextCase = TextCase.LowerCase,
                 StringSeparator = '-'
             };
 
-            var sanitizer = new SlugCreator(configuration);
+            var sanitizer = new Slugity(configuration);
 
             string before = "this should be lowercase";
             string after = "this-should-be-lowercase";
@@ -63,13 +63,13 @@ namespace SeoUrlSanitizer.Tests
         [Fact]
         private void ShouldBeSeparatedByUnderscores()
         {
-            var configuration = new SlugConfiguration
+            var configuration = new SlugityConfig
             {
                 TextCase = TextCase.LowerCase,
                 StringSeparator = '_'
             };
 
-            var sanitizer = new SlugCreator(configuration);
+            var sanitizer = new Slugity(configuration);
 
             string before = "this should be lowercase";
             string after = "this_should_be_lowercase";
@@ -81,14 +81,14 @@ namespace SeoUrlSanitizer.Tests
         [Fact]
         private void ShouldRemoveStopWords()
         {
-            var configuration = new SlugConfiguration
+            var configuration = new SlugityConfig
             {
                 TextCase = TextCase.LowerCase,
                 StringSeparator = ' ',
                 EnableStopWords = true
             };
 
-            var sanitizer = new SlugCreator(configuration);
+            var sanitizer = new Slugity(configuration);
 
             string before = "This then that should remain";
             string after = "this should remain";
@@ -100,7 +100,7 @@ namespace SeoUrlSanitizer.Tests
         [Fact]
         private void ShouldReplaceCharacters()
         {
-            var configuration = new SlugConfiguration
+            var configuration = new SlugityConfig
             {
                 TextCase = TextCase.Ignore,
                 StringSeparator = ' '
@@ -108,7 +108,7 @@ namespace SeoUrlSanitizer.Tests
 
             configuration.ReplacementCharacters.Add("Hello", "Goodbye");
 
-            var sanitizer = new SlugCreator(configuration);
+            var sanitizer = new Slugity(configuration);
 
             string before = "Hello World";
             string after = "Goodbye World";

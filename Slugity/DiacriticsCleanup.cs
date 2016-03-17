@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Text;
 
-namespace SeoUrlSanitizer
+namespace Slugity
 {
     public class DiacriticsCleanup
     {

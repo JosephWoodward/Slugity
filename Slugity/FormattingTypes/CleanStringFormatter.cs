@@ -1,11 +1,11 @@
 ﻿using System.Text.RegularExpressions;
-using SeoUrlSanitizer.Configuration;
+using Slugity.Configuration;
 
-namespace SeoUrlSanitizer.FormattingTypes
+namespace Slugity.FormattingTypes
 {
     public class CleanStringFormatter : ISlugFormatter
     {
-        public string Format(string transformedString, IConfiguration configuration)
+        public string Format(string transformedString, ISlugityConfig config)
         {
             string stripHtml = Regex.Replace(transformedString, @"<[^>]+>|&nbsp;", "").Trim();
             string cleanSpaces = Regex.Replace(stripHtml, @"\s{2,}", " ");

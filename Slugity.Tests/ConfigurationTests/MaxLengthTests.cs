@@ -1,20 +1,20 @@
-﻿using SeoUrlSanitizer.Configuration;
-using Shouldly;
+﻿using Shouldly;
+using Slugity.Configuration;
 using Xunit;
 
-namespace SeoUrlSanitizer.Tests.ConfigurationTests
+namespace Slugity.Tests.ConfigurationTests
 {
     public class MaxLengthTests
     {
         [Fact]
         private void ShouldNotTrimSlugIfMaxLengthIsNull()
         {
-            var configuration = new SlugConfiguration
+            var configuration = new SlugityConfig
             {
                 MaxLength = null
             };
 
-            var sanitizer = new SlugCreator(configuration);
+            var sanitizer = new Slugity(configuration);
 
             string before = "This should not be trimmed";
             string after = "this-should-not-be-trimmed";
@@ -26,12 +26,12 @@ namespace SeoUrlSanitizer.Tests.ConfigurationTests
         [Fact]
         private void ShouldNotTrimSlugIfMaxLengthGreater()
         {
-            var configuration = new SlugConfiguration
+            var configuration = new SlugityConfig
             {
                 MaxLength = 28
             };
 
-            var sanitizer = new SlugCreator(configuration);
+            var sanitizer = new Slugity(configuration);
 
             string before = "This should not be trimmed";
             string after = "this-should-not-be-trimmed";
@@ -43,12 +43,12 @@ namespace SeoUrlSanitizer.Tests.ConfigurationTests
         [Fact]
         private void ShouldTruncateTrailingSeparator()
         {
-            var configuration = new SlugConfiguration
+            var configuration = new SlugityConfig
             {
                 MaxLength = 34
             };
 
-            var sanitizer = new SlugCreator(configuration);
+            var sanitizer = new Slugity(configuration);
 
             string before = "Test to see if the next separator gets truncated";
             string after = "test-to-see-if-the-next-separator";
@@ -60,12 +60,12 @@ namespace SeoUrlSanitizer.Tests.ConfigurationTests
         [Fact]
         private void ShouldNotTruncateWord()
         {
-            var configuration = new SlugConfiguration
+            var configuration = new SlugityConfig
             {
                 MaxLength = 10
             };
 
-            var sanitizer = new SlugCreator(configuration);
+            var sanitizer = new Slugity(configuration);
 
             string before = "The word hippo should not be truncated";
             string after = "the-word-hippo";

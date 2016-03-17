@@ -1,4 +1,4 @@
-﻿namespace SeoUrlSanitizer
+﻿namespace Slugity
 {
     internal static class DiacriticalFoldingService
     {

@@ -7,7 +7,7 @@
     <ProjectGuid>{FFEB8DB2-66CB-4DDB-BCC3-E07BFBBA5A94}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SeoUrlSanitizer</RootNamespace>
+    <RootNamespace>Slugity</RootNamespace>
     <AssemblyName>Slugly</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -41,12 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CharacterReplacement.cs" />
-    <Compile Include="Configuration\SlugConfiguration.cs" />
+    <Compile Include="Configuration\SlugityConfig.cs" />
     <Compile Include="Configuration\TextCase.cs" />
-    <Compile Include="Configuration\DefaultConfiguration.cs" />
+    <Compile Include="Configuration\DefaultSlugityConfig.cs" />
     <Compile Include="DiacriticalFoldingService.cs" />
     <Compile Include="DiacriticsCleanup.cs" />
-    <Compile Include="Configuration\IConfiguration.cs" />
+    <Compile Include="Configuration\ISlugityConfig.cs" />
     <Compile Include="FormattingTypes\CleanStringFormatter.cs" />
     <Compile Include="FormattingTypes\ISlugFormatter.cs" />
     <Compile Include="FormattingTypes\MaxLengthFormatter.cs" />
@@ -54,7 +54,7 @@
     <Compile Include="FormattingTypes\StringSeparatorFormatter.cs" />
     <Compile Include="FormattingTypes\StopWordFormatter.cs" />
     <Compile Include="FormattingTypes\TextCaseFormatter.cs" />
-    <Compile Include="SlugCreator.cs" />
+    <Compile Include="Slugity.cs" />
     <Compile Include="StringToUrlSanitizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StopWords.cs" />

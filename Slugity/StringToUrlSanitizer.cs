@@ -3,7 +3,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using static System.Char;
 
-namespace SeoUrlSanitizer
+namespace Slugity
 {
     public class StringToUrlSanitizer
     {
