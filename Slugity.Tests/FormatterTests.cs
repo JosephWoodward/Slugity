@@ -35,8 +35,8 @@ namespace Slugity.Tests
 
             var slugity = new Slugity(configuration);
 
-            string before = "this should be lowercase";
-            string after = "THIS SHOULD BE LOWERCASE";
+            string before = "this should be UPPERCASE";
+            string after = "THIS SHOULD BE UPPERCASE";
 
             string result = slugity.GenerateSlug(before);
             result.ShouldBe(after);

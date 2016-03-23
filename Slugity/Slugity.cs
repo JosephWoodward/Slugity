@@ -13,9 +13,9 @@ namespace Slugity
         {
             new CleanStringFormatter(),
             new ReplaceCharactersFormatter(),
+            new StringSeparatorFormatter(),
             new TextCaseFormatter(),
             new StopWordFormatter(),
-            new StringSeparatorFormatter(),
             new MaxLengthFormatter()
         };
 

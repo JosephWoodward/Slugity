@@ -1,22 +1,11 @@
 ﻿using Shouldly;
+using Slugity.Configuration;
 using Xunit;
 
 namespace Slugity.Tests
 {
     public class DefaultFormatterTests
     {
-        [Fact]
-        private void ShouldBeLowerCase()
-        {
-            var slugity = new Slugity();
-
-            string before = "THIS SHOULD BE LOWERCASE";
-            string after = "this-should-be-lowercase";
-
-            string result = slugity.GenerateSlug(before);
-            result.ShouldBe(after);
-        }
-
         [Fact]
         private void StopWordsShouldBeDisabled()
         {

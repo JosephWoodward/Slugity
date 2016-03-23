@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationTests\MaxLengthTests.cs" />
+    <Compile Include="ConfigurationTests\TextCaseTests.cs" />
     <Compile Include="CustomSlugityConfig.cs" />
     <Compile Include="CustomConfigurationTests.cs" />
     <Compile Include="DefaultFormatterTests.cs" />
