@@ -25,13 +25,9 @@ namespace Slugity.FormattingTypes
 
         private string ToCamalCase(string input)
         {
-            string[] arr = input.Split(_configuration.StringSeparator);
-            foreach (string s in arr)
-            {
-                s[0].ToString()
-            }
+            string result = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(input.ToLower());
 
-            return "";
+            return result;
         }
     }
 }

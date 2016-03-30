@@ -7,11 +7,30 @@ namespace Slugity.Tests.ConfigurationTests
     public class TextCaseTests
     {
         [Fact]
+        private void ShouldBeUpperCase()
+        {
+            var configuration = new SlugityConfig
+            {
+                TextCase = TextCase.UpperCase,
+                StringSeparator = '-'
+            };
+
+            var slugity = new Slugity(configuration);
+
+            string before = "this should BE UPPERCASE";
+            string after = "THIS-SHOULD-BE-UPPERCASE";
+
+            string result = slugity.GenerateSlug(before);
+            result.ShouldBe(after);
+        }
+
+        [Fact]
         private void ShouldBeLowerCase()
         {
             var configuration = new SlugityConfig
             {
-                TextCase = TextCase.LowerCase
+                TextCase = TextCase.LowerCase,
+                StringSeparator = '-'
             };
 
             var slugity = new Slugity(configuration);
