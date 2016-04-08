@@ -12,8 +12,8 @@ namespace Slugity
         private readonly IList<ISlugFormatter> _slugFormatters = new List<ISlugFormatter>
         {
             new CleanStringFormatter(),
-            new ReplaceCharactersFormatter(),
             new StringSeparatorFormatter(),
+            new ReplaceCharactersFormatter(),
             new TextCaseFormatter(),
             new StopWordFormatter(),
             new MaxLengthFormatter()

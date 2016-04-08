@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="ConfigurationTests\MaxLengthTests.cs" />
     <Compile Include="ConfigurationTests\ReplacementCharacterTests.cs" />
+    <Compile Include="ConfigurationTests\StopWordTests.cs" />
     <Compile Include="ConfigurationTests\StringSeparatorTests.cs" />
     <Compile Include="ConfigurationTests\TextCaseTests.cs" />
     <Compile Include="CustomSlugityConfig.cs" />

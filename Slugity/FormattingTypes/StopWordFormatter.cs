@@ -15,8 +15,10 @@ namespace Slugity.FormattingTypes
         {
             if (!config.EnableStopWords) return transformedString;
 
-            string[] inputArray = transformedString.Split();
-            return string.Join(config.StringSeparator.ToString(), inputArray.Except(StopWords.StopWordList));
+            string[] inputArray = transformedString.Split(config.StringSeparator);
+            string result = string.Join(config.StringSeparator.ToString(), inputArray.Except(StopWords.StopWordList));
+
+            return result;
         }
     }
 }

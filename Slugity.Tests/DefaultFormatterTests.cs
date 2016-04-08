@@ -1,5 +1,4 @@
 ﻿using Shouldly;
-using Slugity.Configuration;
 using Xunit;
 
 namespace Slugity.Tests
