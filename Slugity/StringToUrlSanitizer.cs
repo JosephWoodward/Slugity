@@ -3,9 +3,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using static System.Char;
 
-namespace Slugity
+namespace SlugityLib
 {
-    public class StringToUrlSanitizer
+    internal class StringToUrlSanitizer
     {
         /// <summary>GenerateSlug input string to URL</summary>
         /// <param name="input">Input string</param>

@@ -1,4 +1,4 @@
-﻿namespace Slugity.Configuration
+﻿namespace SlugityLib.Configuration
 {
     public enum TextCase
     {

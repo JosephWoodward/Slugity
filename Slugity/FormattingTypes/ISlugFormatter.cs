@@ -1,6 +1,6 @@
-﻿using Slugity.Configuration;
+﻿using SlugityLib.Configuration;
 
-namespace Slugity.FormattingTypes
+namespace SlugityLib.FormattingTypes
 {
     public interface ISlugFormatter
     {

@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Slugity</RootNamespace>
-    <AssemblyName>Slugly</AssemblyName>
+    <AssemblyName>Slugity</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,8 +44,6 @@
     <Compile Include="Configuration\SlugityConfig.cs" />
     <Compile Include="Configuration\TextCase.cs" />
     <Compile Include="Configuration\DefaultSlugityConfig.cs" />
-    <Compile Include="DiacriticalFoldingService.cs" />
-    <Compile Include="DiacriticsCleanup.cs" />
     <Compile Include="Configuration\ISlugityConfig.cs" />
     <Compile Include="FormattingTypes\CleanStringFormatter.cs" />
     <Compile Include="FormattingTypes\ISlugFormatter.cs" />
@@ -54,12 +52,14 @@
     <Compile Include="FormattingTypes\StringSeparatorFormatter.cs" />
     <Compile Include="FormattingTypes\StopWordFormatter.cs" />
     <Compile Include="FormattingTypes\TextCaseFormatter.cs" />
+    <Compile Include="ICharacterReplacement.cs" />
     <Compile Include="Slugity.cs" />
-    <Compile Include="StringToUrlSanitizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StopWords.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Package.nuspec" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,7 +1,7 @@
 ﻿using Shouldly;
 using Xunit;
 
-namespace Slugity.Tests
+namespace SlugityLib.Tests
 {
     public class CustomConfigurationTests
     {

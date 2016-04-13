@@ -1,8 +1,8 @@
 ﻿using Shouldly;
-using Slugity.Configuration;
+using SlugityLib.Configuration;
 using Xunit;
 
-namespace Slugity.Tests.ConfigurationTests
+namespace SlugityLib.Tests.ConfigurationTests
 {
     public class MaxLengthTests
     {

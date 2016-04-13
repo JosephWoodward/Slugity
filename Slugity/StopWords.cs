@@ -1,6 +1,6 @@
-﻿namespace Slugity
+﻿namespace SlugityLib
 {
-    public static class StopWords
+    internal static class StopWords
     {
         public static string[] StopWordList =
         {

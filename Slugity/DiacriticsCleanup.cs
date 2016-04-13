@@ -1,9 +1,9 @@
 ﻿using System.Globalization;
 using System.Text;
 
-namespace Slugity
+namespace SlugityLib
 {
-    public class DiacriticsCleanup
+    internal class DiacriticsCleanup
     {
         public static string RemoveDiacritics(string value)
         {

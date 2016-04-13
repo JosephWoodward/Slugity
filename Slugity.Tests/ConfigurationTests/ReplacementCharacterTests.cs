@@ -1,11 +1,19 @@
-﻿using Shouldly;
-using Slugity.Configuration;
+﻿using System;
+using Shouldly;
+using SlugityLib.Configuration;
 using Xunit;
 
-namespace Slugity.Tests.ConfigurationTests
+namespace SlugityLib.Tests.ConfigurationTests
 {
     public class ReplacementCharacterTests
     {
+        [Fact]
+        private void ShouldNotAllowEmptyBeforeValue()
+        {
+            var characters = new CharacterReplacement();
+            Should.Throw<ArgumentException>(() => characters.Add("", "Goodbye"));
+        }
+
         [Fact]
         private void ShouldReplaceSingleWords()
         {
@@ -29,7 +37,7 @@ namespace Slugity.Tests.ConfigurationTests
         }
 
         [Fact]
-        private void ShouldNotReplaceMultipleWords()
+        private void ShouldReplaceMultipleWords()
         {
             var characters = new CharacterReplacement();
             characters.Add("Hello World", "Goodbye Planet");
@@ -44,7 +52,7 @@ namespace Slugity.Tests.ConfigurationTests
             var slugity = new Slugity(configuration);
 
             string before = "Hello World";
-            string after = "hello-world";
+            string after = "goodbye-planet";
 
             string result = slugity.GenerateSlug(before);
             result.ShouldBe(after);
@@ -67,6 +75,54 @@ namespace Slugity.Tests.ConfigurationTests
 
             string before = "Hello_World";
             string after = "helloworld";
+
+            string result = slugity.GenerateSlug(before);
+            result.ShouldBe(after);
+        }
+
+        [Fact]
+        private void ShouldBeAbleToAddThenReplaceWords()
+        {
+            var characters = new CharacterReplacement();
+            characters.Add("Hello", "Goodbye");
+
+            var configuration = new SlugityConfig
+            {
+                TextCase = TextCase.LowerCase,
+                StringSeparator = '_',
+                ReplacementCharacters = characters
+            };
+
+            characters.AddOrReplace("Goodbye", "Hello");
+
+            var slugity = new Slugity(configuration);
+
+            string before = "Hello World";
+            string after = "hello_world";
+
+            string result = slugity.GenerateSlug(before);
+            result.ShouldBe(after);
+        }
+
+        [Fact]
+        private void ShouldRemoveCharacterReplacement()
+        {
+            var characters = new CharacterReplacement();
+            characters.Add("Hello", "Goodbye");
+
+            var configuration = new SlugityConfig
+            {
+                TextCase = TextCase.LowerCase,
+                StringSeparator = '_',
+                ReplacementCharacters = characters
+            };
+
+            characters.Remove("Goodbye");
+
+            var slugity = new Slugity(configuration);
+
+            string before = "Hello World";
+            string after = "hello_world";
 
             string result = slugity.GenerateSlug(before);
             result.ShouldBe(after);

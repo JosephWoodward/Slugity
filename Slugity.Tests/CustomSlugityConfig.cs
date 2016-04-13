@@ -1,13 +1,13 @@
-﻿using Slugity.Configuration;
+﻿using SlugityLib.Configuration;
 
-namespace Slugity.Tests
+namespace SlugityLib.Tests
 {
     public class CustomSlugityConfig : ISlugityConfig
     {
         public CustomSlugityConfig()
         {
             TextCase = TextCase.LowerCase;
-            EnableStopWords = false;
+            StripStopWords = false;
             MaxLength = 30;
             StringSeparator = ' ';
             ReplacementCharacters = new CharacterReplacement();
@@ -21,6 +21,6 @@ namespace Slugity.Tests
 
         public CharacterReplacement ReplacementCharacters { get; set; }
 
-        public bool EnableStopWords { get; set; }
+        public bool StripStopWords { get; set; }
     }
 }

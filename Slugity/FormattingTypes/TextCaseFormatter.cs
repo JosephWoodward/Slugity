@@ -1,8 +1,8 @@
-﻿using Slugity.Configuration;
+﻿using SlugityLib.Configuration;
 
-namespace Slugity.FormattingTypes
+namespace SlugityLib.FormattingTypes
 {
-    public class TextCaseFormatter : ISlugFormatter
+    internal class TextCaseFormatter : ISlugFormatter
     {
         private ISlugityConfig _configuration;
 

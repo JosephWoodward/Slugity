@@ -1,4 +1,4 @@
-﻿namespace Slugity
+﻿namespace SlugityLib
 {
     internal static class DiacriticalFoldingService
     {

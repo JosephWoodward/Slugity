@@ -1,8 +1,8 @@
-﻿using Slugity.Configuration;
+﻿using SlugityLib.Configuration;
 
-namespace Slugity.FormattingTypes
+namespace SlugityLib.FormattingTypes
 {
-    public class MaxLengthFormatter : ISlugFormatter
+    internal class MaxLengthFormatter : ISlugFormatter
     {
         public string Format(string transformedString, ISlugityConfig config)
         {

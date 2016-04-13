@@ -1,9 +1,9 @@
 ﻿using System.Linq;
-using Slugity.Configuration;
+using SlugityLib.Configuration;
 
-namespace Slugity.FormattingTypes
+namespace SlugityLib.FormattingTypes
 {
-    public class StopWordFormatter : ISlugFormatter
+    internal class StopWordFormatter : ISlugFormatter
     {
         public static string[] StopWordList =
         {
@@ -13,7 +13,7 @@ namespace Slugity.FormattingTypes
 
         public string Format(string transformedString, ISlugityConfig config)
         {
-            if (!config.EnableStopWords) return transformedString;
+            if (!config.StripStopWords) return transformedString;
 
             string[] inputArray = transformedString.Split(config.StringSeparator);
             string result = string.Join(config.StringSeparator.ToString(), inputArray.Except(StopWords.StopWordList));

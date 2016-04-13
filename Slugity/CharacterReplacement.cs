@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace Slugity
+namespace SlugityLib
 {
-    public class CharacterReplacement
+    public class CharacterReplacement : ICharacterReplacement
     {
         private readonly Dictionary<string, string> _replacementCharacterStore;
 
@@ -15,19 +17,40 @@ namespace Slugity
 
         public void Add(string before, string after)
         {
+            AddCheck(before, after);
+
             _replacementCharacterStore.Add(before, after);
         }
 
         public void AddOrReplace(string before, string after)
         {
+            AddCheck(before, after);
+
             if (_replacementCharacterStore.ContainsKey(before))
                 _replacementCharacterStore.Remove(before);
             _replacementCharacterStore.Add(before, after);
         }
 
-        public void Remove(string before)
+        public void Remove(string afterValue)
         {
-            _replacementCharacterStore.Remove(before);
+            if (string.IsNullOrWhiteSpace(afterValue) || string.IsNullOrEmpty(afterValue))
+                throw new ArgumentNullException(afterValue);
+
+            var replacement = _replacementCharacterStore.FirstOrDefault(x => x.Value == afterValue);
+            if (replacement.Value == null) return;
+
+            _replacementCharacterStore.Remove(replacement.Key);
+        }
+
+        private void AddCheck(string before, string after)
+        {
+            if (before == null)
+                throw new ArgumentNullException(nameof(before));
+            if (string.IsNullOrWhiteSpace(before))
+                throw new ArgumentException("Before parameter cannot be empty");
+
+            if (after == null)
+                throw new ArgumentNullException(nameof(after));
         }
     }
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Slugity.Configuration;
+using SlugityLib.Configuration;
 
-namespace Slugity.FormattingTypes
+namespace SlugityLib.FormattingTypes
 {
-    public class ReplaceCharactersFormatter : ISlugFormatter
+    internal class ReplaceCharactersFormatter : ISlugFormatter
     {
         public string Format(string transformedString, ISlugityConfig config)
         {

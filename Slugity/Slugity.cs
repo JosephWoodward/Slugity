@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Slugity.Configuration;
-using Slugity.FormattingTypes;
+using SlugityLib.Configuration;
+using SlugityLib.FormattingTypes;
 
-namespace Slugity
+namespace SlugityLib
 {
     public class Slugity
     {
@@ -12,8 +12,8 @@ namespace Slugity
         private readonly IList<ISlugFormatter> _slugFormatters = new List<ISlugFormatter>
         {
             new CleanStringFormatter(),
-            new StringSeparatorFormatter(),
             new ReplaceCharactersFormatter(),
+            new StringSeparatorFormatter(),
             new TextCaseFormatter(),
             new StopWordFormatter(),
             new MaxLengthFormatter()
@@ -29,6 +29,11 @@ namespace Slugity
             this.slugityConfig = slugityConfig;
         }
 
+        /// <summary>
+        /// Generate a slug based on input and optional configuration settings
+        /// </summary>
+        /// <param name="input">String you would like to turn into a slug</param>
+        /// <returns>Slug based on configuration settings</returns>
         public string GenerateSlug(string input)
         {
             if (string.IsNullOrEmpty(input) || string.IsNullOrWhiteSpace(input))

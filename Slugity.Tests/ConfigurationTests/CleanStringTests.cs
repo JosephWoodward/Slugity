@@ -4,28 +4,10 @@ using Xunit;
 
 namespace SlugityLib.Tests.ConfigurationTests
 {
-    public class TextCaseTests
+    public class CleanStringTests
     {
         [Fact]
-        private void ShouldBeUpperCase()
-        {
-            var configuration = new SlugityConfig
-            {
-                TextCase = TextCase.UpperCase,
-                StringSeparator = '-'
-            };
-
-            var slugity = new Slugity(configuration);
-
-            string before = "this should BE UPPERCASE";
-            string after = "THIS-SHOULD-BE-UPPERCASE";
-
-            string result = slugity.GenerateSlug(before);
-            result.ShouldBe(after);
-        }
-
-        [Fact]
-        private void ShouldBeLowerCase()
+        private void ShouldCleanString()
         {
             var configuration = new SlugityConfig
             {
@@ -35,26 +17,46 @@ namespace SlugityLib.Tests.ConfigurationTests
 
             var slugity = new Slugity(configuration);
 
-            string before = "THIS SHOULD BE LOWERCASE";
-            string after = "this-should-be-lowercase";
+            string before = "This should clear the text, ok?";
+            string after = "this-should-clear-the-text-ok";
 
             string result = slugity.GenerateSlug(before);
             result.ShouldBe(after);
         }
 
         [Fact]
-        private void ShouldBeCamalCase()
+        private void ShouldCleanString2()
         {
             var configuration = new SlugityConfig
             {
-                TextCase = TextCase.CamalCase,
+                TextCase = TextCase.LowerCase,
                 StringSeparator = '-'
             };
 
             var slugity = new Slugity(configuration);
 
-            string before = "this should BE CAMAL CASE";
-            string after = "This-Should-Be-Camal-Case";
+            string before = "Clean & tidy strings, this***.";
+            string after = "clean-tidy-strings-this";
+
+            string result = slugity.GenerateSlug(before);
+            result.ShouldBe(after);
+        }   
+
+        [Fact]
+        private void ShouldCleanStrings3()
+        {
+            var configuration = new SlugityConfig
+            {
+                TextCase = TextCase.LowerCase,
+                StringSeparator = '-'
+            };
+
+            configuration.ReplacementCharacters.Add("remain", "be left behind");
+
+            var slugity = new Slugity(configuration);
+
+            string before = "text !\"£$%^&*(),>/#'; should remain";
+            string after = "text-should-be-left-behind";
 
             string result = slugity.GenerateSlug(before);
             result.ShouldBe(after);

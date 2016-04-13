@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigurationTests\CleanStringTests.cs" />
     <Compile Include="ConfigurationTests\MaxLengthTests.cs" />
     <Compile Include="ConfigurationTests\ReplacementCharacterTests.cs" />
     <Compile Include="ConfigurationTests\StopWordTests.cs" />

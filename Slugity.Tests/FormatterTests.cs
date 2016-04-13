@@ -1,8 +1,8 @@
 ﻿using Shouldly;
-using Slugity.Configuration;
+using SlugityLib.Configuration;
 using Xunit;
 
-namespace Slugity.Tests
+namespace SlugityLib.Tests
 {
     public class FormatterTests
     {
@@ -85,7 +85,7 @@ namespace Slugity.Tests
             {
                 TextCase = TextCase.LowerCase,
                 StringSeparator = ' ',
-                EnableStopWords = true
+                StripStopWords = true
             };
 
             var slugity = new Slugity(configuration);

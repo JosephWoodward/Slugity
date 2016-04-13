@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Slugity</id>
+    <version>1.0.0</version>
+	<title>Slugity</title>
+    <authors>Joseph Woodward</authors>
+    <owners>Joseph Woodward</owners>
+    <licenseUrl>https://raw.githubusercontent.com/JosephWoodward/SlugityDotNet/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/JosephWoodward/SlugityDotNet</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Slugity is a simple, configuration based class library that's designed to create search engine friendly URL slugs</description>
+	<language>en-US</language>
+    <releaseNotes>Initial release of Slugity.</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>Slug, slug creator, slug generator, url, url creator</tags>
+  </metadata>
+  <files>
+    <file src="bin\Release\Slugity.dll" target="lib\NET40" />
+  </files>
+</package>

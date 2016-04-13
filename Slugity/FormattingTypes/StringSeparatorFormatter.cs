@@ -1,18 +1,17 @@
-﻿using System.Text;
-using Slugity.Configuration;
+﻿using System;
+using System.Text;
+using SlugityLib.Configuration;
 
-namespace Slugity.FormattingTypes
+namespace SlugityLib.FormattingTypes
 {
-    public class StringSeparatorFormatter : ISlugFormatter
+    internal class StringSeparatorFormatter : ISlugFormatter
     {
         public string Format(string transformedString, ISlugityConfig config)
         {
-/*
-            if (config.StringSeparator == null) return transformedString;
-*/
+            if (string.IsNullOrEmpty(transformedString))
+                throw new ArgumentNullException(nameof(transformedString));
 
             bool lastCharIsSeperator = false;
-
             var result = new StringBuilder();
 
             bool isWhiteSpace;
