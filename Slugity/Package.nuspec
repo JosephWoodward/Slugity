@@ -2,12 +2,13 @@
 <package >
   <metadata>
     <id>Slugity</id>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 	<title>Slugity</title>
     <authors>Joseph Woodward</authors>
     <owners>Joseph Woodward</owners>
     <licenseUrl>https://raw.githubusercontent.com/JosephWoodward/SlugityDotNet/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/JosephWoodward/SlugityDotNet</projectUrl>
+    <iconUrl>https://github.com/JosephWoodward/SlugityDotNet/raw/master/icon.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Slugity is a simple, configuration based class library that's designed to create search engine friendly URL slugs</description>
 	<language>en-US</language>
