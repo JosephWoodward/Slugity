@@ -99,3 +99,9 @@ Example:
 
     string result = slugity.GenerateSlug("This then that should remain");
     Console.WriteLine(result); // this should remain
+
+## Installation
+
+You can install Slugity by copying and pasting the following command into your Package Manager Console within Visual Studio (Tools > NuGet Package Manager > Package Manager Console).
+
+`Install-Package Slugity`
