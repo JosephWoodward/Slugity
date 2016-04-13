@@ -14,7 +14,7 @@ Slugity is a simple, configuration based class library that's designed to create
     
     var slugity = new Slugity(configuration);
         
-    string slug = slugity.Sanitize("A <span style="font-weight: bold">customisable</a> slug generation library");
+    string slug = slugity.GenerateSlug("A <span style="font-weight: bold">customisable</a> slug generation library");
     Console.Log(slug); 
     
     //Output: a-customisable-slug-generation-library
@@ -33,7 +33,7 @@ The main goal of Slugity is to be highly configuration, providing users with the
     
         CharacterReplacement ReplacementCharacters { get; set; }
     
-        bool EnableStopWords { get; set; }
+        bool StripStopWords { get; set; }
     }
 
 **TextCase**   
@@ -71,10 +71,10 @@ Example:
     Console.WriteLine(result); // Goodbye World
 
 
-**EnableStopWords**  
-Setting `EnableStopWords` to `true` will configure Slugity to remove a pre-defined set of stop-words from your generated slug. See [here](http://blogs.iit.edu/iit_web/2013/04/29/seo-the-evil-stop-words/) for more information on stop words. 
+**StripStopWords**  
+Setting `StripStopWords` to `true` will configure Slugity to remove a pre-defined set of stop-words from your generated slug. See [here](http://blogs.iit.edu/iit_web/2013/04/29/seo-the-evil-stop-words/) for more information on stop words. 
 
-Default value: `EnableStopWords = false;`
+Default value: `StripStopWords = false;`
 
 The current stop-words are:
 
@@ -90,7 +90,7 @@ Example:
     {
         TextCase = TextCase.LowerCase,
         StringSeparator = ' ',
-        EnableStopWords = true
+        StripStopWords = true
     };
 
     var slugity = new Slugity(configuration);
