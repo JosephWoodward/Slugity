@@ -2,6 +2,11 @@
 
 Slugity is a simple, configuration based class library that's designed to create search engine friendly URL slugs.
 
+##Features
+
+- Highly configurable (see below for configuration options)
+- Cleans strings
+- Strips HTML
 
 **Simple Example:**
 
