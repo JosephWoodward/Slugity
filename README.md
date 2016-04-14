@@ -10,7 +10,7 @@ Slugity is a simple, configuration based class library that's designed to create
 - Strips HTML
 
 
-**Simple Example:**
+**Simplest Example:**
 
     var slugity = new Slugity();
     string slug = slugity.GenerateSlug("A <span style="font-weight: bold">customisable</a> slug generation library");
@@ -27,11 +27,13 @@ Slugity is a simple, configuration based class library that's designed to create
         MaxLength = 60
     };
     
+    configuration.ReplacementCharacters.Add("eat", "munch on");
+    
     var slugity = new Slugity(configuration);
-    string slug = slugity.GenerateSlug("I can configure slugity to my heart's content");
+    string slug = slugity.GenerateSlug("I like to eat lettuce");
     
     Console.Log(slug);
-    //Output: i_can_configure_slugity_to_my_hearts_content
+    //Output: i_like_to_munch_on_lettuce
 
 ## Configuration options
 
