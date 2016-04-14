@@ -4,25 +4,34 @@ Slugity is a simple, configuration based class library that's designed to create
 
 ##Features
 
+- Super easy to use
 - Highly configurable (see below for configuration options)
 - Cleans strings
 - Strips HTML
 
+
 **Simple Example:**
+
+    var slugity = new Slugity();
+    string slug = slugity.GenerateSlug("A <span style="font-weight: bold">customisable</a> slug generation library");
+    
+    Console.Log(slug); 
+    //Output: a-customisable-slug-generation-library
+
+**Configuration Example:**
 
     var configuration = new SlugityConfig
     {
         TextCase = TextCase.LowerCase,
-        StringSeparator = '-',
+        StringSeparator = '_',
         MaxLength = 60
     };
     
     var slugity = new Slugity(configuration);
-        
-    string slug = slugity.GenerateSlug("A <span style="font-weight: bold">customisable</a> slug generation library");
-    Console.Log(slug); 
+    string slug = slugity.GenerateSlug("I can configure slugity to my heart's content");
     
-    //Output: a-customisable-slug-generation-library
+    Console.Log(slug);
+    //Output: i_can_configure_slugity_to_my_hearts_content
 
 ## Configuration options
 
@@ -71,8 +80,8 @@ Example:
     configuration.ReplacementCharacters.Add("Hello", "Goodbye");
 
     var slugity = new Slugity(configuration);
-
     string result = slugity.GenerateSlug("Hello World");
+
     Console.WriteLine(result); // Goodbye World
 
 
