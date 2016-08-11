@@ -1,4 +1,5 @@
-﻿using SlugityLib.Configuration;
+﻿using System.Globalization;
+using SlugityLib.Configuration;
 
 namespace SlugityLib.FormattingTypes
 {
@@ -24,8 +25,13 @@ namespace SlugityLib.FormattingTypes
         }
 
         private string ToCamalCase(string input)
-        {
-            string result = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(input.ToLower());
+        {            
+            CultureInfo.CurrentCulture = new CultureInfo("");
+            CultureInfo.CurrentUICulture = new CultureInfo("");
+
+            string result = string.Empty;
+
+            // string result = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(input.ToLower());
 
             return result;
         }
