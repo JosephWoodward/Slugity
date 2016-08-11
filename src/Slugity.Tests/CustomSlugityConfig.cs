@@ -1,6 +1,4 @@
-﻿using SlugityLib.Configuration;
-
-namespace SlugityLib.Tests
+﻿namespace SlugityLib.Tests
 {
     public class CustomSlugityConfig : ISlugityConfig
     {
