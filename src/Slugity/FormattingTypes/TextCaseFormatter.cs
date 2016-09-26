@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Collections.Generic;
+using System.Linq;
 using SlugityLib.Configuration;
 
 namespace SlugityLib.FormattingTypes
@@ -16,7 +17,7 @@ namespace SlugityLib.FormattingTypes
                 case TextCase.LowerCase:
                     return transformedString.ToLower();
                 case TextCase.CamalCase:
-                    return ToCamalCase(transformedString);
+                    return ToCamalCaseRevisted(transformedString);
                 case TextCase.UpperCase:
                     return transformedString.ToUpper();
                 default:
@@ -24,16 +25,31 @@ namespace SlugityLib.FormattingTypes
             }
         }
 
-        private string ToCamalCase(string input)
-        {            
-            CultureInfo.CurrentCulture = new CultureInfo("");
-            CultureInfo.CurrentUICulture = new CultureInfo("");
+        private string ToCamalCaseRevisted(string input)
+        {
+            var words = input.Split('-');
+            var result = new List<string>();
 
-            string result = string.Empty;
+            foreach (var word in words)
+            {
+	            if (word.Length == 1)
+	            {
+		            result.Add(word.ToUpper());
+	            }
+	            else
+	            {
+		            result.Add(char.ToUpper(word[0]) + word.Remove(0, 1).ToLower());
+	            }
+            }
 
-            // string result = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(input.ToLower());
+            string output = string.Join("-", result);
+            
+            return output;
+        }
 
-            return result;
+        private static bool IsAllCapitals(string input)
+        {
+            return input.ToCharArray().All(char.IsUpper);
         }
     }
 }
