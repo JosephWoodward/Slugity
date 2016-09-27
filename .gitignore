@@ -120,6 +120,7 @@ ClientBin/
 *.publishsettings
 *.vscode/
 *.idea/
+.vscode
 
 # RIA/Silverlight projects
 Generated_Code/
