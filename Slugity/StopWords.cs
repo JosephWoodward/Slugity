@@ -18,14 +18,19 @@ namespace Slugity
 
         public void Add(params string[] words)
         {
-            if (words != null) StopWordsStore.AddRange(words);
+            if (words == null) return;
+            foreach (var word in words)
+            {
+                if (word != null) StopWordsStore.Add(word);
+            }
         }
 
         public void Remove(params string[] words)
         {
+            if (words == null) return;
             foreach (var word in words)
             {
-                StopWordsStore.Remove(word);
+                if (word != null) StopWordsStore.Remove(word);
             }
         }
     }
