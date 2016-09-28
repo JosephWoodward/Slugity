@@ -54,8 +54,10 @@
     <Compile Include="FormattingTypes\StopWordFormatter.cs" />
     <Compile Include="FormattingTypes\TextCaseFormatter.cs" />
     <Compile Include="ICharacterReplacement.cs" />
+    <Compile Include="IStopWords.cs" />
     <Compile Include="Slugity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DefaultStopWords.cs" />
     <Compile Include="StopWords.cs" />
   </ItemGroup>
   <ItemGroup>
