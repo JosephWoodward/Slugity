@@ -16,7 +16,7 @@ namespace SlugityLib.FormattingTypes
             if (!config.StripStopWords) return transformedString;
 
             string[] inputArray = transformedString.Split(config.StringSeparator);
-            string result = string.Join(config.StringSeparator.ToString(), inputArray.Except(StopWords.StopWordList));
+            string result = string.Join(config.StringSeparator.ToString(), inputArray.Except(config.StopWords.StopWordsStore));
 
             return result;
         }

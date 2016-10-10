@@ -1,4 +1,5 @@
-﻿using SlugityLib.Configuration;
+﻿using Slugity;
+using SlugityLib.Configuration;
 
 namespace SlugityLib.Tests
 {
@@ -22,5 +23,7 @@ namespace SlugityLib.Tests
         public CharacterReplacement ReplacementCharacters { get; set; }
 
         public bool StripStopWords { get; set; }
+
+        public StopWords StopWords { get; set; }
     }
 }

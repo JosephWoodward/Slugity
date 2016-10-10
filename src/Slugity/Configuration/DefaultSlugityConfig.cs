@@ -1,4 +1,6 @@
-﻿namespace SlugityLib.Configuration
+﻿using Slugity;
+
+namespace SlugityLib.Configuration
 {
     public abstract class DefaultSlugityConfig : ISlugityConfig
     {
@@ -9,6 +11,7 @@
             MaxLength = 100;
             ReplacementCharacters = new CharacterReplacement();
             StripStopWords = false;
+            StopWords = new StopWords();
         }
 
         public TextCase TextCase { get; set; }
@@ -20,5 +23,7 @@
         public CharacterReplacement ReplacementCharacters { get; set; }
 
         public bool StripStopWords { get; set; }
+
+        public StopWords StopWords { get; set; }
     }
 }

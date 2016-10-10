@@ -1,11 +1,37 @@
-﻿namespace SlugityLib
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SlugityLib;
+
+namespace Slugity
 {
-    internal static class StopWords
+    public class StopWords : IStopWords
     {
-        public static string[] StopWordList =
+        public List<string> StopWordsStore { get; } = new List<string>();
+
+        public StopWords()
         {
-            "the", "a", "an", "am", "is", "can", "and", "or", "but", "while", "if", "then", "thus", "of", "that", "on",
-            "for", "he", "we", "which", "her"
-        };
+            StopWordsStore.AddRange(DefaultStopWords.StopWordList);
+        }
+
+        public void Add(params string[] words)
+        {
+            if (words == null) return;
+            foreach (var word in words)
+            {
+                if (word != null) StopWordsStore.Add(word);
+            }
+        }
+
+        public void Remove(params string[] words)
+        {
+            if (words == null) return;
+            foreach (var word in words)
+            {
+                if (word != null) StopWordsStore.Remove(word);
+            }
+        }
     }
 }
