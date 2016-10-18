@@ -36,7 +36,7 @@ namespace SlugityLib.FormattingTypes
             var builder = new StringBuilder();
             foreach (char c in input)
             {
-                if (char.IsLetter(c) || char.IsNumber(c) || _validStrings.Any(x => x.Contains(c)))
+                if (char.IsLetter(c) || char.IsNumber(c) || _validStrings.Any(x => x.Contains(c.ToString())))
                     builder.Append(c);
             }
 
