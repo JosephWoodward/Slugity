@@ -1,6 +1,4 @@
-﻿using Slugity;
-
-namespace SlugityLib.Configuration
+﻿namespace SlugityLib.Configuration
 {
     public abstract class DefaultSlugityConfig : ISlugityConfig
     {

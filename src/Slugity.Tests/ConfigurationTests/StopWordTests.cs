@@ -1,5 +1,4 @@
 ﻿using Shouldly;
-using Slugity;
 using SlugityLib.Configuration;
 using Xunit;
 

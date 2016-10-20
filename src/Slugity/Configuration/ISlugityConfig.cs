@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using Slugity;
-
-namespace SlugityLib.Configuration
+﻿namespace SlugityLib.Configuration
 {
     public interface ISlugityConfig
     {
@@ -30,6 +27,9 @@ namespace SlugityLib.Configuration
         /// </summary>
         bool StripStopWords { get; set; }
 
+        /// <summary>
+        /// Collection of stop words that will be stripped from the final slug
+        /// </summary>
         StopWords StopWords { get; set; }
     }
 }

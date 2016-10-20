@@ -1,5 +1,4 @@
-﻿using Slugity;
-using SlugityLib.Configuration;
+﻿using SlugityLib.Configuration;
 
 namespace SlugityLib.Tests
 {

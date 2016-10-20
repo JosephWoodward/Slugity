@@ -4,7 +4,6 @@ Slugity is a simple, configuration based class library that's designed to create
 
 ##Features
 
-- Super easy to use
 - Highly configurable (see below for configuration options)
 - Cleans strings
 - Strips HTML
